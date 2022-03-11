@@ -1,0 +1,23 @@
+.homelink {
+    text-decoration: underline;
+    font-size: medium;
+    color: #579eee;
+    font-weight: 400;
+}
+
+.lLogo {
+    width: 80px;
+}
+
+p {
+    color: #7f838a;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 260px;
+    background-color: #edeef1;
+}
