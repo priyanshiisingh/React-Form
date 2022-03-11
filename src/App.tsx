@@ -5,6 +5,7 @@ import FooterIndex from "./Layouts/Footer/FooterIndex";
 import Header from "./Layouts/Header/Header";
 import InputFieldIndex from "./components/InputFields/InputFieldIndex";
 import TextAreaIndex from "./components/TextArea/TextAreaIndex";
+// import FormFormat from "./components/Form/FormFormat";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header /> */}
       <InputFieldIndex />
       <TextAreaIndex />
+      {/* <FormFormat /> */}
       {/* <FooterIndex /> */}
     </div>
   );
