@@ -6,7 +6,7 @@ import Header from "./Layouts/Header/Header";
 import InputFieldIndex from "./components/InputFields/InputFieldIndex";
 import TextAreaIndex from "./components/TextArea/TextAreaIndex";
 import SelectOptionsIndex from "./components/SelectOptions/SelectOptionsIndex";
-// import FormFormat from "./components/Form/FormFormat";
+import FormFormat from "./components/Form/FormFormat";
 
 function App() {
   return (
