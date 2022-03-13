@@ -1,13 +1,19 @@
 .logo {
-    width: 150px;
+    height: 77px;
 }
 
-.brand-nav {
-    position: fixed;
+.navBody {
+    background-color: bisque;
+    margin: 0px auto;
     width: 100%;
-    min-height: 110px;
-    background-color: blanchedalmond;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0 30px;
+    position: fixed;
+}
+
+.nava {
+    display: inline-block;
+    margin: 17.5px 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
 }

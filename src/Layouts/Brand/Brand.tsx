@@ -7,9 +7,11 @@ interface BrandProps {
 
 const Brand = ({ brand }: BrandProps) => {
   return (
-    <div>
+    <div className="navBody">
       <nav className="brand-nav">
-        <img src={brand} alt="logo" className="logo" />
+        <a href="#" className="nava">
+          <img src={brand} alt="logo" className="logo" />
+        </a>
       </nav>
     </div>
   );
