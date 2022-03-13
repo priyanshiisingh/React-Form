@@ -39,12 +39,10 @@ const SelectOptions = ({
   registerOptions,
 }: SelectOptionsProps) => {
   const { register, handleSubmit } = useForm<SelectOptionsProps>();
-  const onSubmit: SubmitHandler<SelectOptionsProps> = (data) =>
-    console.log(data);
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <label htmlFor={uqname}>{label}</label>
         <select id={uqname} {...register(registerOptions)}>
           <option value="">"Select..."</option> {/*default selct*/}
@@ -57,7 +55,6 @@ const SelectOptions = ({
             );
           })}
         </select>
-        <input type="submit" />
       </form>
     </div>
   );
