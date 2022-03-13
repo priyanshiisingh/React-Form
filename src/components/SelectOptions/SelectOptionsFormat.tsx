@@ -24,15 +24,15 @@ enum Veteran {
 }
 
 interface SelectOptionsProps {
-  key: string;
+  opKey: string;
   uqname: string;
   label: string;
   options: string[];
   registerOptions: any;
 }
 
-const SelectOptionsFormat = ({
-  key,
+const SelectOptions = ({
+  opKey,
   uqname,
   label,
   options,
@@ -47,7 +47,15 @@ const SelectOptionsFormat = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor={uqname}>{label}</label>
         <select id={uqname} {...register(registerOptions)}>
-          <option value="">"Select..."</option>
+          <option value="">"Select..."</option> {/*default selct*/}
+          {options.map((value, num) => {
+            return (
+              <option key={opKey + num.toString()} value={value}>
+                {value}
+                {console.log("select options key", opKey + num.toString())}
+              </option>
+            );
+          })}
         </select>
         <input type="submit" />
       </form>
@@ -55,4 +63,4 @@ const SelectOptionsFormat = ({
   );
 };
 
-export default SelectOptionsFormat;
+export default SelectOptions;

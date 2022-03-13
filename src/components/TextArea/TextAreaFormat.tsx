@@ -23,10 +23,8 @@ const TextAreaField = ({
     formState: { errors },
   } = useForm<TextAreaProps>();
 
-  const onSubmit: SubmitHandler<TextAreaProps> = (data) => console.log(data);
-
   return (
-    <form className="mb-3" onSubmit={handleSubmit(onSubmit)}>
+    <form className="mb-3">
       <label htmlFor={label}>{label}</label>
       <input
         type={type}
@@ -35,7 +33,6 @@ const TextAreaField = ({
         id={label}
       />
       {errors.registerTextArea && <span>This field is required</span>}
-      <input type="submit" />
     </form>
   );
 };

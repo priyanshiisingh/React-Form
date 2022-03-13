@@ -15,9 +15,12 @@ const InputFieldIndex = () => {
             lessThan10MB: (files: any) =>
               files[0]?.size < 10000000 || "Max 10MB",
             acceptedFormats: (files: any) =>
-              ["image/jpeg", "image/png", "image/gif", "file/pdf"].includes(
-                files[0]?.type
-              ) || "Only PNG, JPEG e GIF, PDF",
+              [
+                "image/jpeg",
+                "image/png",
+                "image/gif",
+                "application/pdf",
+              ].includes(files[0]?.type) || "Only PNG, JPEG e GIF, PDF",
           },
         }}
       />
