@@ -5,6 +5,13 @@ const SelectOptionsIndex = () => {
   return (
     <div>
       <SelectOptions
+        opKey={"s1"}
+        label={"Gender"}
+        uqname={"gender"}
+        options={["female", "male", "other"]}
+        registerOptions={"gender"}
+      />
+      <SelectOptions
         opKey={"s2"}
         label={"Race"}
         uqname={"race"}
