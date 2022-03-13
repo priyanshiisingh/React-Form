@@ -1,6 +1,6 @@
 import React from "react";
 import Brand from "./Brand";
-import logo from "../../images/logo.png";
+import logo from "../../assets/images/logo.png";
 
 const BrandIndex = () => {
   return <Brand brand={logo} />;

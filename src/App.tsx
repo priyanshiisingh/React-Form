@@ -11,13 +11,13 @@ import SelectOptionsIndex from "./components/SelectOptions/SelectOptionsIndex";
 function App() {
   return (
     <div className="App">
-      {/* <BrandIndex />
-      <Header /> */}
+      <BrandIndex />
+      <Header />
       <InputFieldIndex />
       <TextAreaIndex />
       <SelectOptionsIndex />
       {/* <FormFormat /> */}
-      {/* <FooterIndex /> */}
+      <FooterIndex />
     </div>
   );
 }
