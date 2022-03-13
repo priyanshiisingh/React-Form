@@ -23,8 +23,10 @@ const InputField = ({
     formState: { errors },
   } = useForm<InputProps>();
 
+  const onSubmit: SubmitHandler<InputProps> = (data) => console.log(data);
+
   return (
-    <form className="mb-3">
+    <form className="mb-3" onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor={label}>{label}</label>
       <input
         type={type}
@@ -33,6 +35,7 @@ const InputField = ({
         id={label}
       />
       {errors.registerInput && <span>This field is required</span>}
+      <input type="submit" />
     </form>
   );
 };
