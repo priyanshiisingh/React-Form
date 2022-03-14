@@ -22,7 +22,7 @@ else console.log("BOT!!!");
 
 CAPTCHAindex.TSX
 import React, { useRef } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import ReCaptchaV2 from "react-google-recaptcha";
 require("dotenv").config();
 import axios from "axios";
 
@@ -43,7 +43,7 @@ const YourComponent = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <ReCAPTCHA ref={recaptchaRef} sitekey={key} />
+        <ReCaptchaV2 ref={recaptchaRef} sitekey={key} />
       </form>
     </div>
   );
