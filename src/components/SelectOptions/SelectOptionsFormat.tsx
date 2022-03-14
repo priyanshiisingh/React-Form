@@ -50,7 +50,7 @@ const SelectOptions = ({
         <Div>
           <Label htmlFor={uqname}>{label}</Label>
           <Select id={uqname} {...register(registerOptions)}>
-            <Option value="">"Select..."</Option>
+            <Option value="">Select...</Option>
             {/*default selct*/}
             {options.map((value, num) => {
               return (
