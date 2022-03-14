@@ -1,15 +1,3 @@
-.hmain {
-    padding-top: 120px;
-    padding-bottom: 20px;
-    padding-right: 30px;
-    padding-left: 30px;
-    width: 100%;
-    min-height: 270px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-}
-
 h2 {
     margin: 17.5px 0;
     font-weight: 400;

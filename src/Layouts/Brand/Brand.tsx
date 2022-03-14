@@ -1,5 +1,6 @@
 import React from "react";
-import "./brand.css";
+// import "./brand.css";
+import { Div, Nav, Link, Image } from "../../assets/styles/BrandStyles";
 
 interface BrandProps {
   brand: any;
@@ -7,13 +8,13 @@ interface BrandProps {
 
 const Brand = ({ brand }: BrandProps) => {
   return (
-    <div className="navBody">
-      <nav className="brand-nav">
-        <a href="#" className="nava">
-          <img src={brand} alt="logo" className="logo" />
-        </a>
-      </nav>
-    </div>
+    <Div>
+      <Nav>
+        <Link href="#">
+          <Image src={brand} alt="logo" />
+        </Link>
+      </Nav>
+    </Div>
   );
 };
 

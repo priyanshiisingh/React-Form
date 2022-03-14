@@ -1,13 +1,16 @@
 import React from "react";
-import "./header.css";
+import { OuterDiv, InnerDiv } from "../../assets/styles/HeaderStyles";
 
 const Header = () => {
   return (
-    <div className="hmain">
-      <h2>Full-Stack Engineer</h2>
-      <div className="subText">REMOTE OR SF BAY AREA</div>
-      <div className="subText">/PRODUCT – ENGINEERING /FULL-TIME</div>
-    </div>
+    <OuterDiv className="hmain">
+      <InnerDiv>
+        <h2>Full-Stack Engineer</h2>
+        <div className="subText">
+          REMOTE OR SF BAY AREA/PRODUCT – ENGINEERING /FULL-TIME
+        </div>
+      </InnerDiv>
+    </OuterDiv>
   );
 };
 
