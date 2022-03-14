@@ -54,7 +54,7 @@ const SelectOptions = ({
             {/*default selct*/}
             {options.map((value, num) => {
               return (
-                <Option key={opKey + num.toString()} value={value}>
+                <Option key={opKey + num} value={value}>
                   {value}
                 </Option>
               );
