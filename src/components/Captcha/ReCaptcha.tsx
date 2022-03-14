@@ -5,20 +5,38 @@ import axios from "axios";
 
 const CaptchaComponent = () => {
   //   const recaptchaRef = useRef(null);
-  //   const key = process.env.YOUR_SITE_KEY;
 
   //   const handleSubmit = async () => {
-  //     null;
   //     const captchaToken = await recaptchaRef.current.getValue();
   //     recaptchaRef.current.reset();
 
-  // Pass this token to your server for validation...
+  //     //Pass this token to your server for validation...
 
-  // Sample
+  //     //Sample
+  //     const res = await axios.post(API_URL, {
+  //       FormData,
+  //       captchaToken,
+  //     });
   //   };
-  //   const key = process.env.YOUR_SITE_KEY;
 
-  /*const handleToken = (token) => {
+  function onChange(value: any) {
+    console.log("Captcha value:", value);
+  }
+
+  return (
+    <div>
+      <ReCaptchaV2
+        sitekey={"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
+        onChange={onChange}
+        // onExpired={handleExpire}
+      />
+    </div>
+  );
+};
+
+export default CaptchaComponent;
+
+/*const handleToken = (token) => {
     setForm((currentForm: any) => {
       return { ...currentForm, token };
     });
@@ -29,21 +47,4 @@ const CaptchaComponent = () => {
       return { ...currentForm, token: null };
     });
   };*/
-  function onChange(value: any) {
-    console.log("Captcha value:", value);
-  }
-
-  return (
-    <div>
-      <ReCaptchaV2
-        sitekey={"6Lf9P9ceAAAAALwzKavZ_IkfDYrB30dJ6OaWsNBf"}
-        onChange={onChange}
-        // onExpired={handleExpire}
-      />
-    </div>
-  );
-};
-
-export default CaptchaComponent;
-
 // ref={recaptchaRef}
