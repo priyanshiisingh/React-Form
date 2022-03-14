@@ -42,7 +42,7 @@ const InputField = ({
           />
         </div>
 
-        {errors.registerInput && <p>This field is required</p>}
+        {errors.registerInput && <span>This field is required</span>}
         <input type="submit" />
       </Div>
     </Form>

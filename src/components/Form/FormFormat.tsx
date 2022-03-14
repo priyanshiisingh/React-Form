@@ -2,7 +2,7 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import InputField from "../InputFields/InputFormat";
 import SelectOptions from "../SelectOptions/SelectOptionsFormat";
-import TextAreaField from "../TextArea/TextAreaFormat";
+import { TextAreaField, PrePronounField } from "../TextArea/TextAreaFormat";
 
 interface FormProps {
   cv: FileList;
@@ -141,16 +141,15 @@ const FormFormat = ({
 
         <h3>textarea</h3>
         <div>
-          <TextAreaField
+          <PrePronounField
+            type="text"
             label="Preferred Pronous"
-            type={"text"}
-            registerTextArea="Preferred Pronous"
+            registerPrePronouns="Preferred Pronous"
             placeholder={"Type your response"}
             validations={{ required: false }}
           />
           <TextAreaField
             label="Additional Information"
-            type={"text"}
             registerTextArea="Additional Information"
             placeholder={
               "Add a cover letter or anything else you want to share"

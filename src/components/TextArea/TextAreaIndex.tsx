@@ -1,21 +1,20 @@
 import React from "react";
-import TextAreaField from "./TextAreaFormat";
+import { TextAreaField, PrePronounField } from "./TextAreaFormat";
 // import { PrePro } from "../../assets/styles/TextAreaStyles";
 
 const TextAreaIndex = () => {
   return (
     <div>
-      <TextAreaField
+      <PrePronounField
+        type="text"
         label="Preferred Pronous"
-        type={"text"}
-        registerTextArea="Preferred Pronous"
+        registerPrePronouns="Preferred Pronous"
         placeholder={"Type your response"}
         validations={{ required: false }}
       />
 
       <TextAreaField
         label="Additional Information"
-        type={"text"}
         registerTextArea="Additional Information"
         placeholder={"Add a cover letter or anything else you want to share"}
         validations={{ required: false }}

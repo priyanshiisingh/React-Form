@@ -36,9 +36,13 @@ const Div = styled.div`
 `;
 
 const Form = styled.form`
-  justify-content: center;
+  justify-content: start;
   display: flex;
   align-items: center;
+
+  @media (min-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export { Input, Label, Div, Form };
