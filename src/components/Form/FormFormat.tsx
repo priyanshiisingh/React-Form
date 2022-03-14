@@ -22,23 +22,7 @@ interface FormProps {
   veteran: string;
 }
 
-const FormFormat = ({
-  cv,
-  fullName,
-  email,
-  phone,
-  curComp,
-  lurl,
-  turl,
-  gurl,
-  purl,
-  ourl,
-  prePronouns,
-  addInfo,
-  gender,
-  race,
-  veteran,
-}: FormProps) => {
+const FormFormat = () => {
   const {
     register,
     handleSubmit,
@@ -202,3 +186,23 @@ const FormFormat = ({
 };
 
 export default FormFormat;
+
+/*
+{
+  cv,
+  fullName,
+  email,
+  phone,
+  curComp,
+  lurl,
+  turl,
+  gurl,
+  purl,
+  ourl,
+  prePronouns,
+  addInfo,
+  gender,
+  race,
+  veteran,
+}: FormProps
+*/

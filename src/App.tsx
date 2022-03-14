@@ -17,8 +17,8 @@ function App() {
       <InputFieldIndex />
       <TextAreaIndex />
       <SelectOptionsIndex />
-      <CaptchaComponent />
       {/* <FormFormat /> */}
+      <CaptchaComponent />
       <FooterIndex />
     </div>
   );
