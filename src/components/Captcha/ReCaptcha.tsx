@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import ReCaptchaV2 from "react-google-recaptcha";
-// require("dotenv").config();
 import axios from "axios";
+// require("dotenv").config();
 
 const CaptchaComponent = () => {
   //   const recaptchaRef = useRef(null);
@@ -19,6 +19,7 @@ const CaptchaComponent = () => {
   //     });
   //   };
 
+  const key = process.env.YOUR_SITE_KEY;
   function onChange(value: any) {
     console.log("Captcha value:", value);
   }
@@ -26,7 +27,7 @@ const CaptchaComponent = () => {
   return (
     <div>
       <ReCaptchaV2
-        sitekey={"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
+        sitekey={"6Lf9P9ceAAAAALwzKavZ_IkfDYrB30dJ6OaWsNBf"}
         onChange={onChange}
         // onExpired={handleExpire}
       />

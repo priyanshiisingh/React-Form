@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Input, Label, Div } from "../../assets/styles/InputStyles";
 
 interface InputProps {
   label: string;
@@ -27,15 +28,23 @@ const InputField = ({
 
   return (
     <form className="mb-3" onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor={label}>{label}</label>
-      <input
-        type={type}
-        placeholder={placeholder}
-        {...register(registerInput, validations)}
-        id={label}
-      />
-      {errors.registerInput && <span>This field is required</span>}
-      <input type="submit" />
+      <Div>
+        <div>
+          <Label htmlFor={label}>{label}</Label>
+        </div>
+
+        <div>
+          <Input
+            type={type}
+            placeholder={placeholder}
+            {...register(registerInput, validations)}
+            id={label}
+          />
+        </div>
+
+        {errors.registerInput && <p>This field is required</p>}
+        <input type="submit" />
+      </Div>
     </form>
   );
 };

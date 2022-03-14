@@ -5,7 +5,7 @@ import SelectOptions from "../SelectOptions/SelectOptionsFormat";
 import TextAreaField from "../TextArea/TextAreaFormat";
 
 interface FormProps {
-  cv: any;
+  cv: FileList;
   fullName: string;
   email: string;
   phone: string;
@@ -196,7 +196,7 @@ const FormFormat = ({
           registerOptions={"veteran"}
         />
 
-        <input type="submit" />
+        <input type="submit" value="Submit Application" />
       </form>
     </div>
   );
