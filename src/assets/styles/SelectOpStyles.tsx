@@ -17,12 +17,15 @@ const Select = styled.select`
   background-color: #e2e2e2;
   border-radius: 3px;
   height: 40px;
-  margin-left: 10%;
   width: 500px;
   font-size: 16px;
   line-height: 1.4;
   color: #515357;
   padding: 4px 4px 4px 15px;
+
+  @media (min-width: 768px) {
+    margin-left: 10%;
+  }
 `;
 
 export { Option, Select };

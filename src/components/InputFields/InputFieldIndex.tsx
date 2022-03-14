@@ -6,7 +6,7 @@ const InputFieldIndex = () => {
   return (
     <div>
       <CVInputField
-        label={"resume"}
+        label={"Resume"}
         type={"file"}
         registerInput="resume"
         placeholder={"ATTACH RESUME/CV"}
@@ -24,28 +24,28 @@ const InputFieldIndex = () => {
       />
 
       <InputField
-        label={"full name"}
+        label={"Full name"}
         type={"text"}
         registerInput="Name"
         placeholder={""}
         validations={{ required: true }}
       />
       <InputField
-        label="email"
+        label="Email"
         type="email"
         registerInput="email"
         placeholder={""}
         validations={{ required: true }}
       />
       <InputField
-        label="phone"
+        label="Phone"
         type={"text"}
         registerInput="phone"
         placeholder={""}
         validations={{ required: false }}
       />
       <InputField
-        label="current company"
+        label="Current company"
         type={"text"}
         registerInput="current company"
         placeholder={""}

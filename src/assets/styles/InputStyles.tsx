@@ -4,12 +4,15 @@ const Input = styled.input`
   border: 1px solid #e2e2e2;
   border-radius: 3px;
   height: 40px;
-  margin-left: 10%;
   width: 500px;
   font-size: 16px;
   line-height: 1.4;
   color: #515357;
   padding: 4px 4px 4px 15px;
+
+  @media (min-width: 768px) {
+    margin-left: 10%;
+  }
 `;
 
 const Label = styled.label`
@@ -22,10 +25,14 @@ const Label = styled.label`
 
 const Div = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  width: 75%;
+  width: 50%;
   align-items: baseline;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const Form = styled.form`

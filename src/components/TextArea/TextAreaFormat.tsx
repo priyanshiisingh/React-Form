@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Label, Div, Form } from "../../assets/styles/InputStyles";
+import { Label, Form } from "../../assets/styles/InputStyles";
 
-import { AddInfo } from "../../assets/styles/TextAreaStyles";
+import { AddInfo, Div } from "../../assets/styles/TextAreaStyles";
 
 interface TextAreaProps {
   label: string;

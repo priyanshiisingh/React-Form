@@ -5,14 +5,14 @@ const SelectOptionsIndex = () => {
   return (
     <div>
       <SelectOptions
-        opKey={"s1"}
+        opKey={"op1"}
         label={"Gender"}
         uqname={"gender"}
-        options={["female", "male", "other"]}
+        options={["Female", "Male", "Other"]}
         registerOptions={"gender"}
       />
       <SelectOptions
-        opKey={"s2"}
+        opKey={"op2"}
         label={"Race"}
         uqname={"race"}
         options={[
@@ -29,7 +29,7 @@ const SelectOptionsIndex = () => {
       />
       {/* Veteran Status Field  */}
       <SelectOptions
-        opKey={"s3"}
+        opKey={"op3"}
         label={"Veteran Status"}
         uqname={"veteran-status"}
         options={[
