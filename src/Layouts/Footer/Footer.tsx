@@ -1,5 +1,12 @@
 import React from "react";
-import "./footer.css";
+// import "./footer.css";
+import {
+  Div,
+  Link,
+  Para,
+  FooterS,
+  Image,
+} from "../../assets/styles/FooterStyles";
 
 interface FooterProps {
   homeLink: string;
@@ -8,17 +15,17 @@ interface FooterProps {
 
 const Footer = ({ homeLink, leverimg }: FooterProps) => {
   return (
-    <div className="footer">
+    <FooterS className="footer">
       <h5>
-        <a href={homeLink} className="homelink">
+        <Link href={homeLink} className="homelink">
           Render Home Page
-        </a>
+        </Link>
       </h5>
-      <p>
+      <Para>
         Jobs powered by
-        <img src={leverimg} alt="leverlogo" className="lLogo" />
-      </p>
-    </div>
+        <Image src={leverimg} alt="leverlogo" className="lLogo" />
+      </Para>
+    </FooterS>
   );
 };
 
