@@ -2,7 +2,7 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Input, Label, Div, Form } from "../../assets/styles/InputStyles";
 
-interface InputProps {
+interface CVInputProps {
   label: string;
   type: string;
   placeholder: string;
@@ -10,38 +10,32 @@ interface InputProps {
   validations: any;
 }
 
-const InputField = ({
+const CVInputField = ({
   label,
   type,
   placeholder,
   registerInput,
   validations,
-}: InputProps) => {
+}: CVInputProps) => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<InputProps>();
+  } = useForm<CVInputProps>();
 
-  const onSubmit: SubmitHandler<InputProps> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<CVInputProps> = (data) => console.log(data);
 
   return (
     <Form className="mb-3" onSubmit={handleSubmit(onSubmit)}>
       <Div>
-        <div>
-          <Label htmlFor={label}>{label}</Label>
-        </div>
-
-        <div>
-          <Input
-            type={type}
-            placeholder={placeholder}
-            {...register(registerInput, validations)}
-            id={label}
-          />
-        </div>
-
+        <Label htmlFor={label}>{label}</Label>
+        <Input
+          type={type}
+          placeholder={placeholder}
+          {...register(registerInput, validations)}
+          id={label}
+        />
         {errors.registerInput && <p>This field is required</p>}
         <input type="submit" />
       </Div>
@@ -49,4 +43,4 @@ const InputField = ({
   );
 };
 
-export default InputField;
+export default CVInputField;

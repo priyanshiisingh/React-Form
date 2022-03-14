@@ -4,11 +4,11 @@ const Input = styled.input`
   border: 1px solid #e2e2e2;
   border-radius: 3px;
   height: 40px;
-  margin-right:10%;
-  width:500px;
+  margin-left: 10%;
+  width: 500px;
   font-size: 16px;
-    line-height: 1.4;
-    color: #515357
+  line-height: 1.4;
+  color: #515357;
   padding: 4px 4px 4px 15px;
 `;
 
@@ -22,9 +22,16 @@ const Label = styled.label`
 
 const Div = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   width: 75%;
   align-items: baseline;
 `;
 
-export { Input, Label, Div };
+const Form = styled.form`
+  justify-content: center;
+  display: flex;
+  align-items: center;
+`;
+
+export { Input, Label, Div, Form };

@@ -1,10 +1,11 @@
 import React from "react";
 import InputField from "./InputFormat";
+import CVInputField from "./CVInput";
 
 const InputFieldIndex = () => {
   return (
     <div>
-      <InputField
+      <CVInputField
         label={"resume"}
         type={"file"}
         registerInput="resume"
