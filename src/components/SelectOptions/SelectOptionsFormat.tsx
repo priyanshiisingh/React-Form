@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Input, Label, Div, Form } from "../../assets/styles/InputStyles";
+import { Label, Div, Form } from "../../assets/styles/InputStyles";
+import { Option, Select } from "../../assets/styles/SelectOpStyles";
 
 enum GenderEnum {
   female = "female",
@@ -48,16 +49,17 @@ const SelectOptions = ({
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Div>
           <Label htmlFor={uqname}>{label}</Label>
-          <select id={uqname} {...register(registerOptions)}>
-            <option value="">"Select..."</option> {/*default selct*/}
+          <Select id={uqname} {...register(registerOptions)}>
+            <Option value="">"Select..."</Option>
+            {/*default selct*/}
             {options.map((value, num) => {
               return (
-                <option key={opKey + num.toString()} value={value}>
+                <Option key={opKey + num.toString()} value={value}>
                   {value}
-                </option>
+                </Option>
               );
             })}
-          </select>
+          </Select>
           <input type="submit" />
         </Div>
       </Form>

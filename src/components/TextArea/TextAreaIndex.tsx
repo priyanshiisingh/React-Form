@@ -1,13 +1,14 @@
 import React from "react";
 import TextAreaField from "./TextAreaFormat";
+import InputField from "../InputFields/InputFormat";
 
 const TextAreaIndex = () => {
   return (
     <div>
-      <TextAreaField
+      <InputField
         label="Preferred Pronous"
         type={"text"}
-        registerTextArea="Preferred Pronous"
+        registerInput="Preferred Pronous"
         placeholder={"Type your response"}
         validations={{ required: false }}
       />

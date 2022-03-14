@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Input, Label, Div, Form } from "../../assets/styles/InputStyles";
+import { Label, Div, Form } from "../../assets/styles/InputStyles";
+
+import { AddInfo } from "../../assets/styles/TextAreaStyles";
 
 interface TextAreaProps {
   label: string;
@@ -30,7 +32,7 @@ const TextAreaField = ({
     <Form className="mb-3" onSubmit={handleSubmit(onSubmit)}>
       <Div>
         <Label htmlFor={label}>{label}</Label>
-        <Input
+        <AddInfo
           type={type}
           placeholder={placeholder}
           {...register(registerTextArea, validations)}
