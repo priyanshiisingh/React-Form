@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import ReCaptchaV2 from "react-google-recaptcha";
 import axios from "axios";
+import { Div } from "../../assets/styles/CaptchaStyles";
 // require("dotenv").config();
 
 const CaptchaComponent = () => {
@@ -25,13 +26,13 @@ const CaptchaComponent = () => {
   }
 
   return (
-    <div>
+    <Div>
       <ReCaptchaV2
         sitekey={"6Lf9P9ceAAAAALwzKavZ_IkfDYrB30dJ6OaWsNBf"}
         onChange={onChange}
         // onExpired={handleExpire}
       />
-    </div>
+    </Div>
   );
 };
 
