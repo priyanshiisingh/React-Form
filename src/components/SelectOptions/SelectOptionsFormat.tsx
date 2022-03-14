@@ -52,7 +52,6 @@ const SelectOptions = ({
             return (
               <option key={opKey + num.toString()} value={value}>
                 {value}
-                {console.log("select options key", opKey + num.toString())}
               </option>
             );
           })}
