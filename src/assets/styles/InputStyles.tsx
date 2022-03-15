@@ -45,4 +45,28 @@ const Form = styled.form`
   }
 `;
 
-export { Input, Label, Div, Form };
+const CVInput = styled.input`
+border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  height: 40px;
+  width: 500px;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #515357;
+  padding: 4px 4px 4px 15px;
+  display:none;
+
+  @media (min-width: 768px) {
+    display:none;
+`;
+
+const ReqSpan = styled.span`
+  display: inline-block;
+  color: #ff794f;
+  margin-left: 4px;
+  font-size: 10px;
+  padding-bottom: 0px;
+  position: absolute;
+`;
+
+export { Input, Label, Div, Form, CVInput, ReqSpan };

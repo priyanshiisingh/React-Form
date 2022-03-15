@@ -1,6 +1,7 @@
 import React from "react";
 import InputField from "./InputFormat";
-import CVInputField from "./CVInput";
+import CVInputField from "../RequiredFields/CVInput";
+import InputReqField from "../RequiredFields/InputReqField";
 
 const InputFieldIndex = () => {
   return (
@@ -23,14 +24,14 @@ const InputFieldIndex = () => {
         }}
       />
 
-      <InputField
+      <InputReqField
         label={"Full name"}
         type={"text"}
         registerInput="Name"
         placeholder={""}
         validations={{ required: true }}
       />
-      <InputField
+      <InputReqField
         label="Email"
         type="email"
         registerInput="email"
