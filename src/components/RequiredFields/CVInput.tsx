@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  FieldErrors,
+  Path,
+  UseFormRegister,
+  UseFormWatch,
+} from "react-hook-form";
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
   CVInput,
@@ -9,10 +15,29 @@ import {
   ReqSpan,
 } from "../../assets/styles/InputStyles";
 
+interface FormProps {
+  resume: FileList;
+  fullName: string;
+  email: string;
+  phone: string;
+  currentCompany: string;
+  linkedInUrl: string;
+  twitterUrl: string;
+  githubUrl: string;
+  portfolioUrl: string;
+  otherUrl: string;
+  prePronouns: string;
+  addInfo: string;
+  gender: string;
+  race: string;
+  veteran: string;
+}
+
 interface CVInputProps {
   label: string;
   type: any;
   placeholder: string;
+  register: UseFormRegister<FormProps>;
   registerInput: any;
   validations: any;
 }

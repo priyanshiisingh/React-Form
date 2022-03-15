@@ -9,16 +9,16 @@ import SelectOptions from "../SelectOptions/SelectOptionsFormat";
 import { TextAreaField, PrePronounField } from "../TextArea/TextAreaFormat";
 
 interface FormProps {
-  cv: FileList;
+  resume: FileList;
   fullName: string;
   email: string;
   phone: string;
-  curComp: string;
-  lurl: string;
-  turl: string;
-  gurl: string;
-  purl: string;
-  ourl: string;
+  currentCompany: string;
+  linkedInUrl: string;
+  twitterUrl: string;
+  githubUrl: string;
+  portfolioUrl: string;
+  otherUrl: string;
   prePronouns: string;
   addInfo: string;
   gender: string;
@@ -43,7 +43,8 @@ const FormFormat = () => {
           <CVInputField
             label={"resume"}
             type={"file"}
-            registerInput="resume"
+            registerInput={"resume"}
+            register={register}
             placeholder={"attach file"}
             validations={{
               required: true,
@@ -59,28 +60,32 @@ const FormFormat = () => {
           <InputReqField
             label={"full name"}
             type={"text"}
-            registerInput="Name"
+            registerInput={"fullName"}
+            register={register}
             placeholder={""}
             validations={{ required: true }}
           />
           <InputReqField
             label="email"
             type="email"
-            registerInput="email"
+            registerInput={"email"}
+            register={register}
             placeholder={""}
             validations={{ required: true }}
           />
           <InputField
             label="phone"
             type={"text"}
-            registerInput="phone"
+            registerInput={"phone"}
+            register={register}
             placeholder={""}
             validations={{ required: false }}
           />
           <InputField
             label="current company"
             type={"text"}
-            registerInput="current company"
+            registerInput={"currentCompany"}
+            register={register}
             placeholder={""}
             validations={{ required: false }}
           />
@@ -88,35 +93,40 @@ const FormFormat = () => {
           <InputField
             label="LinkedIn"
             type={"url"}
-            registerInput="LinkedIn"
+            registerInput={"linkedInUrl"}
+            register={register}
             placeholder={""}
             validations={{ required: false }}
           />
           <InputField
             label="Twitter"
             type={"url"}
-            registerInput="Twitter"
+            registerInput={"twitterUrl"}
+            register={register}
             placeholder={""}
             validations={{ required: false }}
           />
           <InputField
             label="Github"
             type={"url"}
-            registerInput="github"
+            registerInput={"githubUrl"}
+            register={register}
             placeholder={""}
             validations={{ required: false }}
           />
           <InputField
             label="Portfolio"
             type={"url"}
-            registerInput="Portfolio"
+            registerInput={"portfolioUrl"}
+            register={register}
             placeholder={""}
             validations={{ required: false }}
           />
           <InputField
             label="Other"
             type={"url"}
-            registerInput="other"
+            registerInput={"otherUrl"}
+            register={register}
             placeholder={""}
             validations={{ required: false }}
           />
@@ -127,13 +137,15 @@ const FormFormat = () => {
           <PrePronounField
             type="text"
             label="Preferred Pronous"
-            registerPrePronouns="Preferred Pronous"
+            registerPrePronouns={"prePronouns"}
+            register={register}
             placeholder={"Type your response"}
             validations={{ required: false }}
           />
           <TextAreaField
             label="Additional Information"
-            registerTextArea="Additional Information"
+            registerTextArea={"addInfo"}
+            register={register}
             placeholder={
               "Add a cover letter or anything else you want to share"
             }
@@ -148,6 +160,7 @@ const FormFormat = () => {
           uqname={"gender"}
           options={["female", "male", "other"]}
           registerOptions={"gender"}
+          register={register}
         />
         <SelectOptions
           opKey={"s2"}
@@ -164,6 +177,7 @@ const FormFormat = () => {
             "Decline to self-identify",
           ]}
           registerOptions={"race"}
+          register={register}
         />
         {/* Veteran Status Field  */}
         <SelectOptions
@@ -176,6 +190,7 @@ const FormFormat = () => {
             "Decline to self identify",
           ]}
           registerOptions={"veteran"}
+          register={register}
         />
 
         <input type="submit" value="Submit Application" />

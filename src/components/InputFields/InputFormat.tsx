@@ -8,10 +8,29 @@ import {
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Input, Label, Div, Form } from "../../assets/styles/InputStyles";
 
+interface FormProps {
+  resume: FileList;
+  fullName: string;
+  email: string;
+  phone: string;
+  currentCompany: string;
+  linkedInUrl: string;
+  twitterUrl: string;
+  githubUrl: string;
+  portfolioUrl: string;
+  otherUrl: string;
+  prePronouns: string;
+  addInfo: string;
+  gender: string;
+  race: string;
+  veteran: string;
+}
+
 interface InputProps {
   label: string;
   type: string;
   placeholder: string;
+  register: UseFormRegister<FormProps>;
   registerInput: any;
   validations: any;
 }

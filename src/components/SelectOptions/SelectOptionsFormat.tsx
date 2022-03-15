@@ -1,13 +1,37 @@
 import React from "react";
+import {
+  FieldErrors,
+  Path,
+  UseFormRegister,
+  UseFormWatch,
+} from "react-hook-form";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Label, Div, Form } from "../../assets/styles/InputStyles";
 import { Option, Select, SVG } from "../../assets/styles/SelectOpStyles";
 
+interface FormProps {
+  resume: FileList;
+  fullName: string;
+  email: string;
+  phone: string;
+  currentCompany: string;
+  linkedInUrl: string;
+  twitterUrl: string;
+  githubUrl: string;
+  portfolioUrl: string;
+  otherUrl: string;
+  prePronouns: string;
+  addInfo: string;
+  gender: string;
+  race: string;
+  veteran: string;
+}
+
 enum GenderEnum {
-  female = "female",
-  male = "male",
-  other = "other",
+  female = "Female",
+  male = "Male",
+  other = "Other",
 }
 enum Race {
   hispanic = "Hispanic or Latino",
@@ -32,6 +56,7 @@ interface SelectOptionsProps {
   label: string;
   options: string[];
   registerOptions: any;
+  register: UseFormRegister<FormProps>;
 }
 
 const SelectOptions = ({

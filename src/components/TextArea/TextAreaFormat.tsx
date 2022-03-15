@@ -1,13 +1,38 @@
 import React from "react";
+import {
+  FieldErrors,
+  Path,
+  UseFormRegister,
+  UseFormWatch,
+} from "react-hook-form";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Label, Form } from "../../assets/styles/InputStyles";
 
 import { AddInfo, Div, PrePro } from "../../assets/styles/TextAreaStyles";
 
+interface FormProps {
+  resume: FileList;
+  fullName: string;
+  email: string;
+  phone: string;
+  currentCompany: string;
+  linkedInUrl: string;
+  twitterUrl: string;
+  githubUrl: string;
+  portfolioUrl: string;
+  otherUrl: string;
+  prePronouns: string;
+  addInfo: string;
+  gender: string;
+  race: string;
+  veteran: string;
+}
+
 interface TextAreaProps {
   label: string;
   placeholder: string;
   registerTextArea: any;
+  register: UseFormRegister<FormProps>;
   validations: any;
 }
 
@@ -16,6 +41,7 @@ interface PrePronounsProps {
   type: string;
   placeholder: string;
   registerPrePronouns: any;
+  register: UseFormRegister<FormProps>;
   validations: any;
 }
 

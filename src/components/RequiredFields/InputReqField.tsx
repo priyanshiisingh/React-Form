@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  FieldErrors,
+  Path,
+  UseFormRegister,
+  UseFormWatch,
+} from "react-hook-form";
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
   Input,
@@ -8,11 +14,30 @@ import {
   ReqSpan,
 } from "../../assets/styles/InputStyles";
 
+interface FormProps {
+  resume: FileList;
+  fullName: string;
+  email: string;
+  phone: string;
+  currentCompany: string;
+  linkedInUrl: string;
+  twitterUrl: string;
+  githubUrl: string;
+  portfolioUrl: string;
+  otherUrl: string;
+  prePronouns: string;
+  addInfo: string;
+  gender: string;
+  race: string;
+  veteran: string;
+}
+
 interface InputReqProps {
   label: string;
   type: string;
   placeholder: string;
   registerInput: any;
+  register: UseFormRegister<FormProps>;
   validations: any;
 }
 
