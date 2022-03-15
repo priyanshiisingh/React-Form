@@ -158,7 +158,7 @@ const FormFormat = () => {
           opKey={"s1"}
           label={"Gender"}
           uqname={"gender"}
-          options={["female", "male", "other"]}
+          options={["Female", "Male", "Other"]}
           registerOptions={"gender"}
           register={register}
         />
