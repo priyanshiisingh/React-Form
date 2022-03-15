@@ -1,6 +1,5 @@
 import React from "react";
 import { TextAreaField, PrePronounField } from "./TextAreaFormat";
-// import { PrePro } from "../../assets/styles/TextAreaStyles";
 
 const TextAreaIndex = () => {
   return (

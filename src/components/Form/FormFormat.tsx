@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import InputField from "../InputFields/InputFormat";
+import CVInputField from "../RequiredFields/CVInput";
+import InputReqField from "../RequiredFields/InputReqField";
 import SelectOptions from "../SelectOptions/SelectOptionsFormat";
 import { TextAreaField, PrePronounField } from "../TextArea/TextAreaFormat";
 
@@ -36,7 +38,7 @@ const FormFormat = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <h3>submit your application</h3>
         <div>
-          <InputField
+          <CVInputField
             label={"resume"}
             type={"file"}
             registerInput="resume"
@@ -57,14 +59,14 @@ const FormFormat = () => {
             }}
           />
 
-          <InputField
+          <InputReqField
             label={"full name"}
             type={"text"}
             registerInput="Name"
             placeholder={""}
             validations={{ required: true }}
           />
-          <InputField
+          <InputReqField
             label="email"
             type="email"
             registerInput="email"
