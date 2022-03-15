@@ -9,10 +9,6 @@ const Input = styled.input`
   line-height: 1.4;
   color: #515357;
   padding: 4px 4px 4px 15px;
-
-  @media (min-width: 768px) {
-    margin-left: 10%;
-  }
 `;
 
 const Label = styled.label`
@@ -27,7 +23,7 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 50%;
+  width: 100%;
   align-items: baseline;
 
   @media (min-width: 768px) {
@@ -35,7 +31,7 @@ const Div = styled.div`
   }
 `;
 
-const Form = styled.form`
+const Form = styled.div`
   justify-content: start;
   display: flex;
   align-items: center;

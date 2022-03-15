@@ -7,6 +7,7 @@ const Div = styled.div`
   align-items: center;
   background-color: white;
   position: fixed;
+  z-index: 3000;
   @media (min-width: 768px) {
     justify-content: center;
   }

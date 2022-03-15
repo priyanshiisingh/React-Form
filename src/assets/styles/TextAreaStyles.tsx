@@ -26,7 +26,7 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 50%;
+  width: 100%;
   align-items: baseline;
 `;
 

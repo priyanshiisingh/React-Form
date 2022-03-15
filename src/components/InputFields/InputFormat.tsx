@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  FieldErrors,
+  Path,
+  UseFormRegister,
+  UseFormWatch,
+} from "react-hook-form";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Input, Label, Div, Form } from "../../assets/styles/InputStyles";
 

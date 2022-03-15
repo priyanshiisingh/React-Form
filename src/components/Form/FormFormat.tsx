@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Form, DivBody } from "../../assets/styles/FormStyles";
+
 import InputField from "../InputFields/InputFormat";
 import CVInputField from "../RequiredFields/CVInput";
 import InputReqField from "../RequiredFields/InputReqField";
@@ -34,8 +36,8 @@ const FormFormat = () => {
 
   const onSubmit: SubmitHandler<FormProps> = (data) => console.log(data);
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)} method="POST">
+    <DivBody>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <h3>submit your application</h3>
         <div>
           <CVInputField
@@ -177,8 +179,8 @@ const FormFormat = () => {
         />
 
         <input type="submit" value="Submit Application" />
-      </form>
-    </div>
+      </Form>
+    </DivBody>
   );
 };
 

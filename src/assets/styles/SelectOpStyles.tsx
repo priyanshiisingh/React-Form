@@ -12,6 +12,13 @@ const Option = styled.option`
   padding: 4px 4px 4px 15px;
 `;
 
+const SVG = styled.svg`
+  color: #e2e2e2;
+  width: 16px;
+  margin-left: 6px;
+  height: 16px;
+`;
+
 const Select = styled.select`
   border: 1px solid #e2e2e2;
   background-color: #e2e2e2;
@@ -22,10 +29,6 @@ const Select = styled.select`
   line-height: 1.4;
   color: #515357;
   padding: 4px 4px 4px 15px;
-
-  @media (min-width: 768px) {
-    margin-left: 10%;
-  }
 `;
 
-export { Option, Select };
+export { Option, Select, SVG };
