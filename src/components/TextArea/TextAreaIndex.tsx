@@ -16,7 +16,7 @@ const TextAreaIndex = () => {
         label="Additional Information"
         registerTextArea="Additional Information"
         placeholder={"Add a cover letter or anything else you want to share"}
-        validations={{ required: false }}
+        validations={{ required: false, minLength: 30 }}
       />
     </div>
   );

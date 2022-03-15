@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <BrandIndex />
       <Header />
-      <InputFieldIndex />
+      {/* <InputFieldIndex />
       <TextAreaIndex />
-      <SelectOptionsIndex />
-      {/* <FormFormat /> */}
+      <SelectOptionsIndex /> */}
+      <FormFormat />
       <CaptchaComponent />
       <FooterIndex />
     </div>

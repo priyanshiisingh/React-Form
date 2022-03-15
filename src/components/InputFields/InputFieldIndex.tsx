@@ -14,12 +14,9 @@ const InputFieldIndex = () => {
         validations={{
           required: true,
           validate: {
-            lessThan10MB: (files: any) =>
-              files[0]?.size < 10000000 || "Max 10MB",
+            lessThan5MB: (files: any) => files[0]?.size < 5000000 || "Max 5MB",
             acceptedFormats: (files: any) =>
-              ["image/jpeg", "image/png", "application/pdf"].includes(
-                files[0]?.type
-              ) || "Only PNG, JPEG e ,PDF",
+              ["application/pdf"].includes(files[0]?.type) || "Only PDF",
           },
         }}
       />
@@ -29,7 +26,12 @@ const InputFieldIndex = () => {
         type={"text"}
         registerInput="Name"
         placeholder={""}
-        validations={{ required: true }}
+        validations={{
+          required: true,
+          minLength: {
+            value: 10,
+          },
+        }}
       />
       <InputReqField
         label="Email"
@@ -43,7 +45,10 @@ const InputFieldIndex = () => {
         type={"text"}
         registerInput="phone"
         placeholder={""}
-        validations={{ required: false }}
+        validations={{
+          required: false,
+          pattern: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
+        }}
       />
       <InputField
         label="Current company"
@@ -58,21 +63,27 @@ const InputFieldIndex = () => {
         type={"url"}
         registerInput="LinkedIn"
         placeholder={""}
-        validations={{ required: false }}
+        validations={{
+          required: false,
+          pattern: /^https:\/\/www.linkedin.com\/.*$/,
+        }}
       />
       <InputField
         label="Twitter"
         type={"url"}
         registerInput="Twitter"
         placeholder={""}
-        validations={{ required: false }}
+        validations={{
+          required: false,
+          pattern: /^https:\/\/twitter.com\/.*$/,
+        }}
       />
       <InputField
         label="Github"
         type={"url"}
         registerInput="github"
         placeholder={""}
-        validations={{ required: false }}
+        validations={{ required: false, pattern: /^https:\/\/github.com\/.*$/ }}
       />
       <InputField
         label="Portfolio"
@@ -93,3 +104,7 @@ const InputFieldIndex = () => {
 };
 
 export default InputFieldIndex;
+
+// pattern: {
+//   value: /\+91\d{10}/,
+// },

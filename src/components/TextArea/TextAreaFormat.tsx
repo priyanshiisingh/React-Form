@@ -32,21 +32,15 @@ const TextAreaField = ({
     formState: { errors },
   } = useForm<TextAreaProps>();
 
-  const onSubmit: SubmitHandler<TextAreaProps> = (data) => console.log(data);
-
   return (
-    <Form className="mb-3" onSubmit={handleSubmit(onSubmit)}>
-      <Div>
-        <Label htmlFor={label}>{label}</Label>
-        <AddInfo
-          placeholder={placeholder}
-          {...register(registerTextArea, validations)}
-          id={label}
-        />
-
-        <input type="submit" />
-      </Div>
-    </Form>
+    <Div>
+      <Label htmlFor={label}>{label}</Label>
+      <AddInfo
+        placeholder={placeholder}
+        {...register(registerTextArea, validations)}
+        id={label}
+      />
+    </Div>
   );
 };
 
@@ -64,22 +58,16 @@ const PrePronounField = ({
     formState: { errors },
   } = useForm<PrePronounsProps>();
 
-  const onSubmit: SubmitHandler<PrePronounsProps> = (data) => console.log(data);
-
   return (
-    <Form className="mb-3" onSubmit={handleSubmit(onSubmit)}>
-      <Div>
-        <Label htmlFor={label}>{label}</Label>
-        <PrePro
-          type={type}
-          placeholder={placeholder}
-          {...register(registerPrePronouns, validations)}
-          id={label}
-        />
-
-        <input type="submit" />
-      </Div>
-    </Form>
+    <Div>
+      <Label htmlFor={label}>{label}</Label>
+      <PrePro
+        type={type}
+        placeholder={placeholder}
+        {...register(registerPrePronouns, validations)}
+        id={label}
+      />
+    </Div>
   );
 };
 

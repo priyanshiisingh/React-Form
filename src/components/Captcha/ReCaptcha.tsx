@@ -20,7 +20,7 @@ const CaptchaComponent = () => {
   //     });
   //   };
 
-  const key = process.env.YOUR_SITE_KEY;
+  // const key = process.env.YOUR_SITE_KEY;
   function onChange(value: any) {
     console.log("Captcha value:", value);
   }

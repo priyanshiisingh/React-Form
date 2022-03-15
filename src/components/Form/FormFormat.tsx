@@ -35,7 +35,7 @@ const FormFormat = () => {
   const onSubmit: SubmitHandler<FormProps> = (data) => console.log(data);
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} method="POST">
         <h3>submit your application</h3>
         <div>
           <CVInputField
@@ -46,15 +46,10 @@ const FormFormat = () => {
             validations={{
               required: true,
               validate: {
-                lessThan10MB: (files: any) =>
-                  files[0]?.size < 10000000 || "Max 10MB",
+                lessThan5MB: (files: any) =>
+                  files[0]?.size < 5000000 || "Max 5MB",
                 acceptedFormats: (files: any) =>
-                  [
-                    "image/jpeg",
-                    "image/png",
-                    "image/gif",
-                    "application/pdf",
-                  ].includes(files[0]?.type) || "Only PNG, JPEG e GIF, PDF",
+                  ["application/pdf"].includes(files[0]?.type) || "Only PDF",
               },
             }}
           />

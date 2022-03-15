@@ -24,28 +24,23 @@ const InputField = ({
     formState: { errors },
   } = useForm<InputProps>();
 
-  const onSubmit: SubmitHandler<InputProps> = (data) => console.log(data);
-
   return (
-    <Form className="mb-3" onSubmit={handleSubmit(onSubmit)}>
-      <Div>
-        <div>
-          <Label htmlFor={label}>{label}</Label>
-        </div>
+    <Div>
+      <div>
+        <Label htmlFor={label}>{label}</Label>
+      </div>
 
-        <div>
-          <Input
-            type={type}
-            placeholder={placeholder}
-            {...register(registerInput, validations)}
-            id={label}
-          />
-        </div>
+      <div>
+        <Input
+          type={type}
+          placeholder={placeholder}
+          {...register(registerInput, validations)}
+          id={label}
+        />
+      </div>
 
-        {errors.registerInput && <span>This field is required</span>}
-        <input type="submit" />
-      </Div>
-    </Form>
+      {errors.registerInput && <span>This field is required</span>}
+    </Div>
   );
 };
 
