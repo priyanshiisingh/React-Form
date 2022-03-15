@@ -7,7 +7,7 @@ const InputFieldIndex = () => {
   return (
     <div>
       <CVInputField
-        label={"Resume"}
+        label={"Resume/CV"}
         type={"file"}
         registerInput="resume"
         placeholder={"ATTACH RESUME/CV"}

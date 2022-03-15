@@ -64,7 +64,7 @@ const ReqSpan = styled.span`
   display: inline-block;
   color: #ff794f;
   margin-left: 4px;
-  font-size: 10px;
+  font-size: 9px;
   padding-bottom: 0px;
   position: absolute;
 `;
