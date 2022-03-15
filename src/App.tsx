@@ -7,7 +7,7 @@ import Header from "./Layouts/Header/Header";
 // import TextAreaIndex from "./components/TextArea/TextAreaIndex";
 // import SelectOptionsIndex from "./components/SelectOptions/SelectOptionsIndex";
 import FormFormat from "./components/Form/FormFormat";
-import CaptchaComponent from "./components/Captcha/ReCaptcha";
+// import CaptchaComponent from "./components/Captcha/ReCaptcha";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       <TextAreaIndex />
       <SelectOptionsIndex /> */}
       <FormFormat />
-      <CaptchaComponent />
+      {/* <CaptchaComponent /> */}
       <FooterIndex />
     </div>
   );

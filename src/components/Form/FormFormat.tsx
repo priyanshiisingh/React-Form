@@ -1,12 +1,22 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Form, DivBody } from "../../assets/styles/FormStyles";
+import {
+  Form,
+  DivBody,
+  Heading,
+  InputBtn,
+  InputDiv,
+  PPText,
+  SelText,
+  HR,
+} from "../../assets/styles/FormStyles";
 
 import InputField from "../InputFields/InputFormat";
 import CVInputField from "../RequiredFields/CVInput";
 import InputReqField from "../RequiredFields/InputReqField";
 import SelectOptions from "../SelectOptions/SelectOptionsFormat";
 import { TextAreaField, PrePronounField } from "../TextArea/TextAreaFormat";
+import CaptchaComponent from "../Captcha/ReCaptcha";
 
 interface FormProps {
   resume: FileList;
@@ -38,10 +48,10 @@ const FormFormat = () => {
   return (
     <DivBody>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <h3>submit your application</h3>
+        <Heading>SUBMIT YOUR APPLICATION</Heading>
         <div>
           <CVInputField
-            label={"resume"}
+            label={"Resume/CV"}
             type={"file"}
             registerInput={"resume"}
             register={register}
@@ -58,7 +68,7 @@ const FormFormat = () => {
           />
 
           <InputReqField
-            label={"full name"}
+            label={"Full name"}
             type={"text"}
             registerInput={"fullName"}
             register={register}
@@ -66,7 +76,7 @@ const FormFormat = () => {
             validations={{ required: true }}
           />
           <InputReqField
-            label="email"
+            label="Email"
             type="email"
             registerInput={"email"}
             register={register}
@@ -74,7 +84,7 @@ const FormFormat = () => {
             validations={{ required: true }}
           />
           <InputField
-            label="phone"
+            label="Phone"
             type={"text"}
             registerInput={"phone"}
             register={register}
@@ -82,14 +92,14 @@ const FormFormat = () => {
             validations={{ required: false }}
           />
           <InputField
-            label="current company"
+            label="Current Company"
             type={"text"}
             registerInput={"currentCompany"}
             register={register}
             placeholder={""}
             validations={{ required: false }}
           />
-          <h3>links</h3>
+          <Heading>LINKS</Heading>
           <InputField
             label="LinkedIn"
             type={"url"}
@@ -132,18 +142,18 @@ const FormFormat = () => {
           />
         </div>
 
-        <h3>textarea</h3>
         <div>
+          <Heading>PREFFERED PRONOUNS</Heading>
+          <PPText>If you'd like, please share your pronouns with us.</PPText>
           <PrePronounField
             type="text"
-            label="Preferred Pronous"
             registerPrePronouns={"prePronouns"}
             register={register}
             placeholder={"Type your response"}
             validations={{ required: false }}
           />
+          <Heading>ADDITIONAL INFORMATION</Heading>
           <TextAreaField
-            label="Additional Information"
             registerTextArea={"addInfo"}
             register={register}
             placeholder={
@@ -153,7 +163,20 @@ const FormFormat = () => {
           />
         </div>
 
-        <h3>selection</h3>
+        <HR />
+
+        <Heading>U.S. EQUAL EMPLOYMENT OPPORTUNITY INFORMATION</Heading>
+
+        <SelText>
+          Our company values diversity. To ensure that we comply with reporting
+          requirements and to learn more about how we can increase diversity in
+          our candidate pool, we invite you to voluntarily provide demographic
+          information in a confidential survey at the end of this application.
+          Providing this information is optional. It will not be accessible or
+          used in the hiring process, and has no effect on your opportunity for
+          employment.
+        </SelText>
+
         <SelectOptions
           opKey={"s1"}
           label={"Gender"}
@@ -193,7 +216,11 @@ const FormFormat = () => {
           register={register}
         />
 
-        <input type="submit" value="Submit Application" />
+        <CaptchaComponent />
+
+        <InputDiv>
+          <InputBtn type="submit" value="Submit Application" />
+        </InputDiv>
       </Form>
     </DivBody>
   );

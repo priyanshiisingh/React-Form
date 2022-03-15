@@ -29,7 +29,6 @@ interface FormProps {
 }
 
 interface TextAreaProps {
-  label: string;
   placeholder: string;
   registerTextArea: any;
   register: UseFormRegister<FormProps>;
@@ -37,7 +36,6 @@ interface TextAreaProps {
 }
 
 interface PrePronounsProps {
-  label: string;
   type: string;
   placeholder: string;
   registerPrePronouns: any;
@@ -46,7 +44,6 @@ interface PrePronounsProps {
 }
 
 const TextAreaField = ({
-  label,
   placeholder,
   registerTextArea,
   register,
@@ -60,18 +57,15 @@ const TextAreaField = ({
 
   return (
     <Div>
-      <Label htmlFor={label}>{label}</Label>
       <AddInfo
         placeholder={placeholder}
         {...register(registerTextArea, validations)}
-        id={label}
       />
     </Div>
   );
 };
 
 const PrePronounField = ({
-  label,
   type,
   placeholder,
   registerPrePronouns,
@@ -86,12 +80,10 @@ const PrePronounField = ({
 
   return (
     <Div>
-      <Label htmlFor={label}>{label}</Label>
       <PrePro
         type={type}
         placeholder={placeholder}
         {...register(registerPrePronouns, validations)}
-        id={label}
       />
     </Div>
   );
