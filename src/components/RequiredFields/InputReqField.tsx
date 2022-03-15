@@ -47,9 +47,9 @@ const InputReqField = ({
   placeholder,
   registerInput,
   validations,
+  register,
 }: InputReqProps) => {
   const {
-    register,
     handleSubmit,
     watch,
     formState: { errors },

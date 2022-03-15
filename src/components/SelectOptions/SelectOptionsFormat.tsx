@@ -64,9 +64,10 @@ const SelectOptions = ({
   uqname,
   label,
   options,
+  register,
   registerOptions,
 }: SelectOptionsProps) => {
-  const { register, handleSubmit } = useForm<SelectOptionsProps>();
+  const { handleSubmit } = useForm<SelectOptionsProps>();
   const [raceInfo, setRaceInfo] = useState(false);
 
   return (

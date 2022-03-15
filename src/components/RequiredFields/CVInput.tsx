@@ -48,9 +48,9 @@ const CVInputField = ({
   placeholder,
   registerInput,
   validations,
+  register,
 }: CVInputProps) => {
   const {
-    register,
     handleSubmit,
     watch,
     formState: { errors },

@@ -41,9 +41,9 @@ const InputField = ({
   placeholder,
   registerInput,
   validations,
+  register,
 }: InputProps) => {
   const {
-    register,
     handleSubmit,
     watch,
     formState: { errors },

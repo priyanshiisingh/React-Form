@@ -49,10 +49,10 @@ const TextAreaField = ({
   label,
   placeholder,
   registerTextArea,
+  register,
   validations,
 }: TextAreaProps) => {
   const {
-    register,
     handleSubmit,
     watch,
     formState: { errors },
