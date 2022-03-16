@@ -60,7 +60,7 @@ const FormFormat = () => {
     const storage = getStorage();
     const storageRef = ref(storage, resumeDoc.name);
 
-    uploadBytes(storageRef, resumeDoc).then(() => {
+    uploadBytes(storageRef, resumeDoc).then((snapshot) => {
       console.log("File uploaded");
     });
 
