@@ -65,7 +65,7 @@ const FormFormat = () => {
     });
 
     try {
-      await addDoc(collection(db, "users"), {
+      await addDoc(collection(db, "applicants"), {
         // resume: data.resume,
         fullName: data.fullName,
         email: data.email,
@@ -263,3 +263,11 @@ const FormFormat = () => {
 };
 
 export default FormFormat;
+
+// const resumeDoc = data.resume[0];
+// const storage = getStorage();
+// const storageRef = ref(storage, resumeDoc.name);
+
+// uploadBytes(storageRef, resumeDoc).then(() => {
+//   console.log("File uploaded");
+// });
