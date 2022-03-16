@@ -7,7 +7,7 @@ import {
 } from "react-hook-form";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Label, Div, Form } from "../../assets/styles/InputStyles";
+import { Label, Div, Form, IDiv } from "../../assets/styles/InputStyles";
 import { Option, Select, SVG } from "../../assets/styles/SelectOpStyles";
 
 interface FormProps {
@@ -89,18 +89,19 @@ const SelectOptions = ({
             <></>
           )}
         </div>
-
-        <Select id={uqname} {...register(registerOptions)}>
-          <Option value="">Select...</Option>
-          {/*default selct*/}
-          {options.map((value, num) => {
-            return (
-              <Option key={opKey + num} value={value}>
-                {value}
-              </Option>
-            );
-          })}
-        </Select>
+        <IDiv>
+          <Select id={uqname} {...register(registerOptions)}>
+            <Option value="">Select...</Option>
+            {/*default selct*/}
+            {options.map((value, num) => {
+              return (
+                <Option key={opKey + num} value={value}>
+                  {value}
+                </Option>
+              );
+            })}
+          </Select>
+        </IDiv>
       </Div>
     </div>
   );

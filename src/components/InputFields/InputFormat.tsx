@@ -6,7 +6,7 @@ import {
   UseFormWatch,
 } from "react-hook-form";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Input, Label, Div, Form } from "../../assets/styles/InputStyles";
+import { Input, Label, Div, Form, IDiv } from "../../assets/styles/InputStyles";
 
 interface FormProps {
   resume: FileList;
@@ -51,20 +51,15 @@ const InputField = ({
 
   return (
     <Div>
-      <div>
-        <Label htmlFor={label}>{label}</Label>
-      </div>
-
-      <div>
+      <Label htmlFor={label}>{label}</Label>
+      <IDiv>
         <Input
           type={type}
           placeholder={placeholder}
           {...register(registerInput, validations)}
           id={label}
-          className="form-control"
         />
-      </div>
-
+      </IDiv>
       {errors.registerInput && <span>This field is required</span>}
     </Div>
   );

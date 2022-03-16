@@ -12,6 +12,7 @@ import {
   Div,
   Form,
   ReqSpan,
+  IDiv,
 } from "../../assets/styles/InputStyles";
 
 interface FormProps {
@@ -63,14 +64,14 @@ const InputReqField = ({
         </Label>
       </div>
 
-      <div>
+      <IDiv>
         <Input
           type={type}
           placeholder={placeholder}
           {...register(registerInput, validations)}
           id={label}
         />
-      </div>
+      </IDiv>
 
       {errors.registerInput && <span>This field is required</span>}
     </Div>

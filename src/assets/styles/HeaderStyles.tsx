@@ -5,12 +5,11 @@ const OuterDiv = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  padding-top: 120px;
-  padding-bottom: 20px;
+  padding: 120px 30px 20px 30px;
   min-height: 270px;
   background-color: white;
 
-  @media (min-width: 768px) {
+  @media (min-width: 800px) {
     justify-content: center;
   }
 `;

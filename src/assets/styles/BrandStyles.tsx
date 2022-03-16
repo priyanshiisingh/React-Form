@@ -6,9 +6,10 @@ const Div = styled.div`
   justify-content: start;
   align-items: center;
   background-color: white;
+  padding: 0 30px;
   position: fixed;
   z-index: 3000;
-  @media (min-width: 768px) {
+  @media (min-width: 800px) {
     justify-content: center;
   }
 `;
