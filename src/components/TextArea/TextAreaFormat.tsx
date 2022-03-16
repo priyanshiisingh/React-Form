@@ -68,11 +68,11 @@ const TextAreaField = ({
 const PrePronounField = ({
   type,
   placeholder,
+  register,
   registerPrePronouns,
   validations,
 }: PrePronounsProps) => {
   const {
-    register,
     handleSubmit,
     watch,
     formState: { errors },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 //styles
@@ -18,11 +18,12 @@ import CVInputField from "../RequiredFields/CVInput";
 import InputReqField from "../RequiredFields/InputReqField";
 import SelectOptions from "../SelectOptions/SelectOptionsFormat";
 import { TextAreaField, PrePronounField } from "../TextArea/TextAreaFormat";
-import CaptchaComponent from "../Captcha/ReCaptcha";
+import CaptchaComponent from "../Captcha/Captcha";
 
 //firebase
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, set } from "firebase/database";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { getStorage, uploadBytes, ref } from "firebase/storage";
 import { db } from "./Firestore";
 // const database = getDatabase();
 
@@ -54,9 +55,18 @@ const FormFormat = () => {
 
   const onSubmit: SubmitHandler<FormProps> = async (data) => {
     console.log(data);
+
+    const resumeDoc = data.resume[0];
+    const storage = getStorage();
+    const storageRef = ref(storage, resumeDoc.name);
+
+    uploadBytes(storageRef, resumeDoc).then(() => {
+      console.log("File uploaded");
+    });
+
     try {
       await addDoc(collection(db, "users"), {
-        resume: data.resume,
+        // resume: data.resume,
         fullName: data.fullName,
         email: data.email,
         phone: data.phone,
