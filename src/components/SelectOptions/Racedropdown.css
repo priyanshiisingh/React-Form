@@ -1,0 +1,31 @@
+.mainUl,
+.subUl,
+.subLi {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mainUl input {
+    display: none;
+}
+
+.mainUl .subUl {
+    display: none;
+}
+
+.mainUl :checked+.subUl {
+    display: block;
+}
+
+h5 {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #515357;
+}
+
+p {
+    font-size: 12px;
+    color: #555659;
+}
