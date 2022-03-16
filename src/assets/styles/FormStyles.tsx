@@ -8,7 +8,7 @@ const DivBody = styled.div`
 `;
 
 const Form = styled.form`
-  width: fit-content;
+  max-width: 48%;
 `;
 
 const Heading = styled.h4`
@@ -25,16 +25,6 @@ const PPText = styled.p`
   font-size: 16px;
   line-height: 1.4;
   margin: 17.5px 0;
-  color: #515357;
-  margin-top: 50px;
-`;
-
-const SelText = styled.p`
-  text-align: flex-start;
-  font-size: 16px;
-  line-height: 1.4;
-  margin: 17.5px 0;
-  max-width: 730px;
   color: #515357;
   margin-top: 50px;
 `;
@@ -64,4 +54,4 @@ const HR = styled.hr`
   margin-top: 70px;
 `;
 
-export { Form, DivBody, Heading, InputBtn, InputDiv, PPText, HR, SelText };
+export { Form, DivBody, Heading, InputBtn, InputDiv, PPText, HR };

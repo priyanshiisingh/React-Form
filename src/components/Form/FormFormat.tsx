@@ -7,7 +7,6 @@ import {
   InputBtn,
   InputDiv,
   PPText,
-  SelText,
   HR,
 } from "../../assets/styles/FormStyles";
 
@@ -17,6 +16,8 @@ import InputReqField from "../RequiredFields/InputReqField";
 import SelectOptions from "../SelectOptions/SelectOptionsFormat";
 import { TextAreaField, PrePronounField } from "../TextArea/TextAreaFormat";
 import CaptchaComponent from "../Captcha/ReCaptcha";
+
+import { db } from "./Firestore";
 
 interface FormProps {
   resume: FileList;
@@ -141,7 +142,6 @@ const FormFormat = () => {
             validations={{ required: false }}
           />
         </div>
-
         <div>
           <Heading>PREFFERED PRONOUNS</Heading>
           <PPText>If you'd like, please share your pronouns with us.</PPText>
@@ -162,12 +162,10 @@ const FormFormat = () => {
             validations={{ required: false }}
           />
         </div>
-
         <HR />
-
         <Heading>U.S. EQUAL EMPLOYMENT OPPORTUNITY INFORMATION</Heading>
-
-        <SelText>
+        {/* (Completion is voluntary and will not subject you to adverse treatment) */}
+        <PPText>
           Our company values diversity. To ensure that we comply with reporting
           requirements and to learn more about how we can increase diversity in
           our candidate pool, we invite you to voluntarily provide demographic
@@ -175,8 +173,7 @@ const FormFormat = () => {
           Providing this information is optional. It will not be accessible or
           used in the hiring process, and has no effect on your opportunity for
           employment.
-        </SelText>
-
+        </PPText>
         <SelectOptions
           opKey={"s1"}
           label={"Gender"}
@@ -215,9 +212,7 @@ const FormFormat = () => {
           registerOptions={"veteran"}
           register={register}
         />
-
         <CaptchaComponent />
-
         <InputDiv>
           <InputBtn type="submit" value="Submit Application" />
         </InputDiv>
