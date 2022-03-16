@@ -61,6 +61,7 @@ const InputField = ({
           placeholder={placeholder}
           {...register(registerInput, validations)}
           id={label}
+          className="form-control"
         />
       </div>
 

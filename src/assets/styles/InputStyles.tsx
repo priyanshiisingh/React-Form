@@ -26,7 +26,7 @@ const Div = styled.div`
   width: 100%;
   align-items: baseline;
 
-  @media (min-width: 768px) {
+  @media (min-width: 800px) {
     flex-direction: row;
   }
 `;
@@ -42,7 +42,7 @@ const Form = styled.div`
 `;
 
 const CVInput = styled.input`
-border: 1px solid #e2e2e2;
+  border: 1px solid #e2e2e2;
   border-radius: 3px;
   height: 40px;
   width: 500px;
@@ -50,10 +50,7 @@ border: 1px solid #e2e2e2;
   line-height: 1.4;
   color: #515357;
   padding: 4px 4px 4px 15px;
-  display:none;
-
-  @media (min-width: 768px) {
-    display:none;
+  display: none;
 `;
 
 const ReqSpan = styled.span`

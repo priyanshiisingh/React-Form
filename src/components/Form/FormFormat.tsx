@@ -66,7 +66,7 @@ const FormFormat = () => {
 
     try {
       await addDoc(collection(db, "applicants"), {
-        // resume: data.resume,
+        // resume: data.resume[0],
         fullName: data.fullName,
         email: data.email,
         phone: data.phone,
@@ -82,6 +82,7 @@ const FormFormat = () => {
         race: data.race,
         veteran: data.veteran,
       });
+      alert("Submit Sucessfull");
     } catch (err) {
       alert(err);
     }

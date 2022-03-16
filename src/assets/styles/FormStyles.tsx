@@ -3,8 +3,13 @@ import styled from "styled-components";
 const DivBody = styled.div`
   width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  padding: 0 30px;
   align-items: center;
+  @media (min-width: 768px) {
+    justify-content: center;
+    left: 50%;
+  }
 `;
 
 const Form = styled.form`
