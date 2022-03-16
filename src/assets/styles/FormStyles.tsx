@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const DivBody = styled.div`
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;

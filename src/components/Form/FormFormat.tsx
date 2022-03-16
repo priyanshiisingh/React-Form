@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+
+//styles
 import {
   Form,
   DivBody,
@@ -10,6 +12,7 @@ import {
   HR,
 } from "../../assets/styles/FormStyles";
 
+//components
 import InputField from "../InputFields/InputFormat";
 import CVInputField from "../RequiredFields/CVInput";
 import InputReqField from "../RequiredFields/InputReqField";
@@ -17,7 +20,11 @@ import SelectOptions from "../SelectOptions/SelectOptionsFormat";
 import { TextAreaField, PrePronounField } from "../TextArea/TextAreaFormat";
 import CaptchaComponent from "../Captcha/ReCaptcha";
 
+//firebase
+import { getDatabase, ref, set } from "firebase/database";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { db } from "./Firestore";
+// const database = getDatabase();
 
 interface FormProps {
   resume: FileList;
@@ -39,13 +46,36 @@ interface FormProps {
 
 const FormFormat = () => {
   const {
-    register,
     handleSubmit,
+    register,
     watch,
     formState: { errors },
   } = useForm<FormProps>();
 
-  const onSubmit: SubmitHandler<FormProps> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<FormProps> = async (data) => {
+    console.log(data);
+    try {
+      await addDoc(collection(db, "users"), {
+        resume: data.resume,
+        fullName: data.fullName,
+        email: data.email,
+        phone: data.phone,
+        currentCompany: data.currentCompany,
+        linkedInUrl: data.linkedInUrl,
+        twitterUrl: data.twitterUrl,
+        githubUrl: data.githubUrl,
+        portfolioUrl: data.portfolioUrl,
+        otherUrl: data.otherUrl,
+        prePronouns: data.prePronouns,
+        addInfo: data.addInfo,
+        gender: data.gender,
+        race: data.race,
+        veteran: data.veteran,
+      });
+    } catch (err) {
+      alert(err);
+    }
+  };
   return (
     <DivBody>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -212,6 +242,7 @@ const FormFormat = () => {
           registerOptions={"veteran"}
           register={register}
         />
+
         <CaptchaComponent />
         <InputDiv>
           <InputBtn type="submit" value="Submit Application" />
@@ -222,23 +253,3 @@ const FormFormat = () => {
 };
 
 export default FormFormat;
-
-/*
-{
-  cv,
-  fullName,
-  email,
-  phone,
-  curComp,
-  lurl,
-  turl,
-  gurl,
-  purl,
-  ourl,
-  prePronouns,
-  addInfo,
-  gender,
-  race,
-  veteran,
-}: FormProps
-*/
