@@ -19,7 +19,7 @@ import InputReqField from "../RequiredFields/InputReqField";
 import SelectOptions from "../SelectOptions/SelectOptionsFormat";
 import { TextAreaField, PrePronounField } from "../TextArea/TextAreaFormat";
 import CaptchaComponent from "../Captcha/Captcha";
-import URL from "./UrlFile";
+// import URL from "./UrlFile";
 
 //firebase
 import { getDatabase, set } from "firebase/database";
