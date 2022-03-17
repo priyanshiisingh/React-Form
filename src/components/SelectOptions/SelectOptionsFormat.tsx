@@ -13,6 +13,7 @@ import { Option, Select, SVG } from "../../assets/styles/SelectOpStyles";
 
 interface FormProps {
   resume: FileList;
+  resumeURL: string;
   fullName: string;
   email: string;
   phone: string;

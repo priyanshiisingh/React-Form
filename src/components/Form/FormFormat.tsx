@@ -19,16 +19,24 @@ import InputReqField from "../RequiredFields/InputReqField";
 import SelectOptions from "../SelectOptions/SelectOptionsFormat";
 import { TextAreaField, PrePronounField } from "../TextArea/TextAreaFormat";
 import CaptchaComponent from "../Captcha/Captcha";
+import URL from "./UrlFile";
 
 //firebase
 import { getDatabase, set } from "firebase/database";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { getStorage, uploadBytes, ref } from "firebase/storage";
+import {
+  getStorage,
+  uploadBytes,
+  ref,
+  getDownloadURL,
+  uploadBytesResumable,
+} from "firebase/storage";
 import { db } from "./Firestore";
 // const database = getDatabase();
 
 interface FormProps {
   resume: FileList;
+  resumeURL: any;
   fullName: string;
   email: string;
   phone: string;
@@ -59,30 +67,36 @@ const FormFormat = () => {
     const resumeDoc = data.resume[0];
     const storage = getStorage();
     const storageRef = ref(storage, resumeDoc.name);
-
-    uploadBytes(storageRef, resumeDoc).then((snapshot) => {
-      console.log("File uploaded");
-    });
+    const upload = uploadBytesResumable(storageRef, resumeDoc);
 
     try {
-      await addDoc(collection(db, "applicants"), {
-        // resume: data.resume[0],
-        fullName: data.fullName,
-        email: data.email,
-        phone: data.phone,
-        currentCompany: data.currentCompany,
-        linkedInUrl: data.linkedInUrl,
-        twitterUrl: data.twitterUrl,
-        githubUrl: data.githubUrl,
-        portfolioUrl: data.portfolioUrl,
-        otherUrl: data.otherUrl,
-        prePronouns: data.prePronouns,
-        addInfo: data.addInfo,
-        gender: data.gender,
-        race: data.race,
-        veteran: data.veteran,
+      await getDownloadURL(upload.snapshot.ref).then((url) => {
+        console.log(url);
+        try {
+          data.resumeURL = url;
+          addDoc(collection(db, "applicants"), {
+            // resume: data.resume[0],
+            resumeURL: data.resumeURL,
+            fullName: data.fullName,
+            email: data.email,
+            phone: data.phone,
+            currentCompany: data.currentCompany,
+            linkedInUrl: data.linkedInUrl,
+            twitterUrl: data.twitterUrl,
+            githubUrl: data.githubUrl,
+            portfolioUrl: data.portfolioUrl,
+            otherUrl: data.otherUrl,
+            prePronouns: data.prePronouns,
+            addInfo: data.addInfo,
+            gender: data.gender,
+            race: data.race,
+            veteran: data.veteran,
+          });
+          alert("Submit Sucessfull");
+        } catch (err) {
+          alert(err);
+        }
       });
-      alert("Submit Sucessfull");
     } catch (err) {
       alert(err);
     }
@@ -92,6 +106,7 @@ const FormFormat = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Heading>SUBMIT YOUR APPLICATION</Heading>
         <div>
+          {/* <URL registerURL={"resumeURL"} register={register} /> */}
           <CVInputField
             label={"Resume/CV"}
             type={"file"}
@@ -115,7 +130,7 @@ const FormFormat = () => {
             registerInput={"fullName"}
             register={register}
             placeholder={""}
-            validations={{ required: true }}
+            validations={{ required: true, minLength: 10 }}
           />
           <InputReqField
             label="Email"
@@ -131,7 +146,7 @@ const FormFormat = () => {
             registerInput={"phone"}
             register={register}
             placeholder={""}
-            validations={{ required: false }}
+            validations={{ required: false, pattern: /(\+91( )\d{0,10})/ }} //works for india only
           />
           <InputField
             label="Current Company"
@@ -148,7 +163,10 @@ const FormFormat = () => {
             registerInput={"linkedInUrl"}
             register={register}
             placeholder={""}
-            validations={{ required: false }}
+            validations={{
+              required: false,
+              pattern: /^(https:\/\/)?(www.linkedin\..*$)/,
+            }}
           />
           <InputField
             label="Twitter"
@@ -156,7 +174,10 @@ const FormFormat = () => {
             registerInput={"twitterUrl"}
             register={register}
             placeholder={""}
-            validations={{ required: false }}
+            validations={{
+              required: false,
+              pattern: /^(https:\/\/)?(twitter\..*$)/,
+            }}
           />
           <InputField
             label="Github"
@@ -164,7 +185,10 @@ const FormFormat = () => {
             registerInput={"githubUrl"}
             register={register}
             placeholder={""}
-            validations={{ required: false }}
+            validations={{
+              required: false,
+              pattern: /^(https:\/\/)?(github\..*$)/,
+            }}
           />
           <InputField
             label="Portfolio"
@@ -200,7 +224,7 @@ const FormFormat = () => {
             placeholder={
               "Add a cover letter or anything else you want to share"
             }
-            validations={{ required: false }}
+            validations={{ required: false, minLength: 30 }}
           />
         </div>
         <HR />

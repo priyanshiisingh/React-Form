@@ -10,6 +10,7 @@ import { Input, Label, Div, Form, IDiv } from "../../assets/styles/InputStyles";
 
 interface FormProps {
   resume: FileList;
+  resumeURL: string;
   fullName: string;
   email: string;
   phone: string;

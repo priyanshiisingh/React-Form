@@ -17,6 +17,7 @@ import {
 
 interface FormProps {
   resume: FileList;
+  resumeURL: string;
   fullName: string;
   email: string;
   phone: string;

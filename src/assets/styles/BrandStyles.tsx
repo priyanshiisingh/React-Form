@@ -11,7 +11,6 @@ const Div = styled.div`
   z-index: 3000;
   @media (max-width: 800px) {
     justify-content: start;
-    padding: 0;
   }
 `;
 

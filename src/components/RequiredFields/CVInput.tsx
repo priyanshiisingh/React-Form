@@ -12,6 +12,7 @@ import {
 
 interface FormProps {
   resume: FileList;
+  resumeURL: string;
   fullName: string;
   email: string;
   phone: string;
@@ -68,7 +69,7 @@ const CVInputField = ({
           </label>
         </div>
         <div>
-          <CVInput
+          <Input
             type={type}
             placeholder={placeholder}
             {...register(registerInput, validations)}

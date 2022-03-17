@@ -12,6 +12,7 @@ import { AddInfo, Div, PrePro } from "../../assets/styles/TextAreaStyles";
 
 interface FormProps {
   resume: FileList;
+  resumeURL: string;
   fullName: string;
   email: string;
   phone: string;
