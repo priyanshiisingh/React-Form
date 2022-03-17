@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  FieldErrors,
-  Path,
-  UseFormRegister,
-  UseFormWatch,
-} from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
   CVInput,
@@ -73,7 +68,7 @@ const CVInputField = ({
           </label>
         </div>
         <div>
-          <Input
+          <CVInput
             type={type}
             placeholder={placeholder}
             {...register(registerInput, validations)}

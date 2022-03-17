@@ -11,11 +11,16 @@
 }
 
 .mainUl .subUl {
+    overflow: hidden;
     display: none;
+    max-height: 0;
+    transition: all 0.9s ease-in-out;
+    transition-delay: 0.1s;
 }
 
 .mainUl :checked+.subUl {
     display: block;
+    max-height: 900px;
 }
 
 h5 {

@@ -1,21 +1,25 @@
 import styled from "styled-components";
 
 const Div = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: start;
+  width: 100%;
+  justify-content: center;
   align-items: center;
   background-color: white;
   padding: 0 30px;
   position: fixed;
   z-index: 3000;
-  @media (min-width: 800px) {
-    justify-content: center;
+  @media (max-width: 800px) {
+    justify-content: start;
+    padding: 0;
   }
 `;
 
 const Nav = styled.nav`
-  width: 50%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  min-width: 760px;
 `;
 
 const Link = styled.a`

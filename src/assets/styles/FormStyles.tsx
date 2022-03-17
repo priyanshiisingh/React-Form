@@ -36,7 +36,8 @@ const PPText = styled.p`
 
 const InputBtn = styled.input`
   background: #4f65f1;
-  border-color: #4b60e5;
+  border: none;
+  outline: white;
   color: white;
   padding: 10px 15px;
   font: normal 500 14px/1.4 Lato;

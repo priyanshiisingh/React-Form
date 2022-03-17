@@ -3,18 +3,24 @@ import styled from "styled-components";
 const OuterDiv = styled.div`
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  padding: 120px 30px 20px 30px;
+  padding: 120px 0 20px 0;
   min-height: 270px;
   background-color: white;
 
-  @media (min-width: 800px) {
-    justify-content: center;
+  @media (max-width: 800px) {
+    justify-content: start;
   }
 `;
 const InnerDiv = styled.div`
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 760px;
+  @media (max-width: 800px) {
+    padding: 0 30px;
+  }
 `;
 
 const Heading = styled.h2`
