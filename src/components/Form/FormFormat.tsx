@@ -288,11 +288,3 @@ const FormFormat = () => {
 };
 
 export default FormFormat;
-
-// const resumeDoc = data.resume[0];
-// const storage = getStorage();
-// const storageRef = ref(storage, resumeDoc.name);
-
-// uploadBytes(storageRef, resumeDoc).then(() => {
-//   console.log("File uploaded");
-// });
