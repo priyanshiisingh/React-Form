@@ -23,7 +23,16 @@ import CaptchaComponent from "../Captcha/Captcha";
 
 //firebase
 import { getDatabase, set } from "firebase/database";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  Timestamp,
+  updateDoc,
+  getDocs,
+  getDoc,
+  setDoc,
+  doc,
+} from "firebase/firestore";
 import {
   getStorage,
   uploadBytes,
@@ -61,6 +70,8 @@ const FormFormat = () => {
     formState: { errors },
   } = useForm<FormProps>();
 
+  const uploadFile = () => {};
+
   const onSubmit: SubmitHandler<FormProps> = async (data) => {
     console.log(data);
 
@@ -70,33 +81,35 @@ const FormFormat = () => {
     const upload = uploadBytesResumable(storageRef, resumeDoc);
 
     try {
-      await getDownloadURL(upload.snapshot.ref).then((url) => {
-        console.log(url);
-        try {
-          data.resumeURL = url;
-          addDoc(collection(db, "applicants"), {
-            // resume: data.resume[0],
-            resumeURL: data.resumeURL,
-            fullName: data.fullName,
-            email: data.email,
-            phone: data.phone,
-            currentCompany: data.currentCompany,
-            linkedInUrl: data.linkedInUrl,
-            twitterUrl: data.twitterUrl,
-            githubUrl: data.githubUrl,
-            portfolioUrl: data.portfolioUrl,
-            otherUrl: data.otherUrl,
-            prePronouns: data.prePronouns,
-            addInfo: data.addInfo,
-            gender: data.gender,
-            race: data.race,
-            veteran: data.veteran,
+      const uploadUrl = () => {
+        getDownloadURL(upload.snapshot.ref).then(async (url) => {
+          console.log(url);
+          updateDoc(doc(db, "applicants", docRef.id), {
+            resumeURL: (data.resumeURL = url),
           });
-          alert("Submit Sucessfull");
-        } catch (err) {
-          alert(err);
-        }
+        });
+      };
+      setTimeout(uploadUrl, 2000);
+
+      const docRef = await addDoc(collection(db, "applicants"), {
+        // resume: data.resume[0]
+        fullName: data.fullName,
+        email: data.email,
+        phone: data.phone,
+        currentCompany: data.currentCompany,
+        linkedInUrl: data.linkedInUrl,
+        twitterUrl: data.twitterUrl,
+        githubUrl: data.githubUrl,
+        portfolioUrl: data.portfolioUrl,
+        otherUrl: data.otherUrl,
+        prePronouns: data.prePronouns,
+        addInfo: data.addInfo,
+        gender: data.gender,
+        race: data.race,
+        veteran: data.veteran,
       });
+      console.log(docRef.id);
+      alert("Submit Sucessfull");
     } catch (err) {
       alert(err);
     }
@@ -288,3 +301,26 @@ const FormFormat = () => {
 };
 
 export default FormFormat;
+
+// const updateRef = doc(db, "applicants");
+// updateDoc(updateRef, {
+//   resumeURL: (data.resumeURL = url),
+// });
+// const getDocument = getDocs(collection(db, "applicants"));
+// console.log(getDocument);
+// addDoc(collection(db, "resumeUrl"), {
+//   resumeURL: (data.resumeURL = url),
+// });
+
+// const newDocRef = doc(collection(db, "applicants"));
+// await setDoc(newDocRef, {
+//   id: newDocRef.id,
+// });
+
+// updateDoc(doc(db, "applicants"), {
+//   resumeURL: (data.resumeURL = url),
+// });
+
+// setTimeout(() => {
+//   console.log("Url uploaded");
+// }, 1000);
