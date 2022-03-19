@@ -10,10 +10,10 @@ import {
   Input,
   Label,
   Div,
-  Form,
   ReqSpan,
   IDiv,
 } from "../../assets/styles/InputStyles";
+import { ErrorDiv } from "../../assets/styles/ErrorStyles";
 
 interface FormProps {
   resume: FileList;
@@ -41,6 +41,8 @@ interface InputReqProps {
   registerInput: any;
   register: UseFormRegister<FormProps>;
   validations: any;
+  errors: any;
+  message: string;
 }
 
 const InputReqField = ({
@@ -50,32 +52,32 @@ const InputReqField = ({
   registerInput,
   validations,
   register,
+  errors,
+  message,
 }: InputReqProps) => {
-  const {
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<InputReqProps>();
+  const { handleSubmit, watch } = useForm<InputReqProps>();
 
   return (
-    <Div>
-      <div>
-        <Label htmlFor={label}>
-          {label} <ReqSpan>✱</ReqSpan>
-        </Label>
-      </div>
+    <div>
+      <Div>
+        <div>
+          <Label htmlFor={label}>
+            {label} <ReqSpan>✱</ReqSpan>
+          </Label>
+        </div>
 
-      <IDiv>
-        <Input
-          type={type}
-          placeholder={placeholder}
-          {...register(registerInput, validations)}
-          id={label}
-        />
-      </IDiv>
-
-      {errors.registerInput && <span>This field is required</span>}
-    </Div>
+        <IDiv>
+          <Input
+            type={type}
+            placeholder={placeholder}
+            {...register(registerInput, validations)}
+            id={label}
+            required
+          />
+        </IDiv>
+      </Div>
+      {errors ? <ErrorDiv>{message}</ErrorDiv> : null}
+    </div>
   );
 };
 

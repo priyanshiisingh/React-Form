@@ -8,7 +8,7 @@ import {
 import { useState } from "react";
 import "../../assets/styles/Racedropdown.css";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Label, Div, Form, IDiv } from "../../assets/styles/InputStyles";
+import { Label, Div, IDiv } from "../../assets/styles/InputStyles";
 import { Option, Select, SVG } from "../../assets/styles/SelectOpStyles";
 
 interface FormProps {

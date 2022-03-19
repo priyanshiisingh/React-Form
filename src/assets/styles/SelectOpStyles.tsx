@@ -13,7 +13,7 @@ const Option = styled.option`
 `;
 
 const SVG = styled.svg`
-  color: #e2e2e2;
+  fill: #737578;
   width: 16px;
   margin-left: 6px;
   height: 16px;

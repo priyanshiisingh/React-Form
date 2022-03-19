@@ -6,7 +6,8 @@ import {
   UseFormWatch,
 } from "react-hook-form";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Label, Form } from "../../assets/styles/InputStyles";
+import { Label } from "../../assets/styles/InputStyles";
+import { ErrorDiv } from "../../assets/styles/ErrorStyles";
 
 import { AddInfo, Div, PrePro } from "../../assets/styles/TextAreaStyles";
 
@@ -34,6 +35,8 @@ interface TextAreaProps {
   registerTextArea: any;
   register: UseFormRegister<FormProps>;
   validations: any;
+  errors: any;
+  message: string;
 }
 
 interface PrePronounsProps {
@@ -49,20 +52,21 @@ const TextAreaField = ({
   registerTextArea,
   register,
   validations,
+  errors,
+  message,
 }: TextAreaProps) => {
-  const {
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<TextAreaProps>();
+  const { handleSubmit, watch } = useForm<TextAreaProps>();
 
   return (
-    <Div>
-      <AddInfo
-        placeholder={placeholder}
-        {...register(registerTextArea, validations)}
-      />
-    </Div>
+    <div>
+      <Div>
+        <AddInfo
+          placeholder={placeholder}
+          {...register(registerTextArea, validations)}
+        />
+      </Div>
+      {errors ? <ErrorDiv>{message}</ErrorDiv> : null}
+    </div>
   );
 };
 

@@ -6,7 +6,8 @@ import {
   UseFormWatch,
 } from "react-hook-form";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Input, Label, Div, Form, IDiv } from "../../assets/styles/InputStyles";
+import { Input, Label, Div, IDiv } from "../../assets/styles/InputStyles";
+import { ErrorDiv } from "../../assets/styles/ErrorStyles";
 
 interface FormProps {
   resume: FileList;
@@ -34,6 +35,8 @@ interface InputProps {
   register: UseFormRegister<FormProps>;
   registerInput: any;
   validations: any;
+  errors: any;
+  message: string;
 }
 
 const InputField = ({
@@ -43,26 +46,26 @@ const InputField = ({
   registerInput,
   validations,
   register,
+  errors,
+  message,
 }: InputProps) => {
-  const {
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<InputProps>();
+  const { handleSubmit, watch } = useForm<InputProps>();
 
   return (
-    <Div>
-      <Label htmlFor={label}>{label}</Label>
-      <IDiv>
-        <Input
-          type={type}
-          placeholder={placeholder}
-          {...register(registerInput, validations)}
-          id={label}
-        />
-      </IDiv>
-      {errors.registerInput && <span>This field is required</span>}
-    </Div>
+    <div>
+      <Div>
+        <Label htmlFor={label}>{label}</Label>
+        <IDiv>
+          <Input
+            type={type}
+            placeholder={placeholder}
+            {...register(registerInput, validations)}
+            id={label}
+          />
+        </IDiv>
+      </Div>
+      {errors ? <ErrorDiv>{message}</ErrorDiv> : null}
+    </div>
   );
 };
 
