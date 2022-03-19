@@ -70,8 +70,6 @@ const FormFormat = () => {
     formState: { errors },
   } = useForm<FormProps>();
 
-  const uploadFile = () => {};
-
   const onSubmit: SubmitHandler<FormProps> = async (data) => {
     console.log(data);
 
@@ -84,15 +82,14 @@ const FormFormat = () => {
       const uploadUrl = () => {
         getDownloadURL(upload.snapshot.ref).then(async (url) => {
           console.log(url);
-          updateDoc(doc(db, "applicants", docRef.id), {
+          await updateDoc(doc(db, "applicants", resumeDoc.id), {
             resumeURL: (data.resumeURL = url),
           });
         });
       };
       setTimeout(uploadUrl, 2000);
 
-      const docRef = await addDoc(collection(db, "applicants"), {
-        // resume: data.resume[0]
+      const resumeDoc = await addDoc(collection(db, "applicants"), {
         fullName: data.fullName,
         email: data.email,
         phone: data.phone,
@@ -108,7 +105,7 @@ const FormFormat = () => {
         race: data.race,
         veteran: data.veteran,
       });
-      console.log(docRef.id);
+      console.log(resumeDoc.id);
       alert("Submit Sucessfull");
     } catch (err) {
       alert(err);
@@ -178,7 +175,7 @@ const FormFormat = () => {
             placeholder={""}
             validations={{
               required: false,
-              pattern: /^(https:\/\/)?(www.linkedin\..*$)/,
+              pattern: /(https:\/\/)(www.linkedin\..*)/,
             }}
           />
           <InputField
@@ -189,7 +186,7 @@ const FormFormat = () => {
             placeholder={""}
             validations={{
               required: false,
-              pattern: /^(https:\/\/)?(twitter\..*$)/,
+              pattern: /(https:\/\/)(twitter\..*)/,
             }}
           />
           <InputField
@@ -200,7 +197,7 @@ const FormFormat = () => {
             placeholder={""}
             validations={{
               required: false,
-              pattern: /^(https:\/\/)?(github\..*$)/,
+              pattern: /(https:\/\/)(github\..*)/,
             }}
           />
           <InputField
@@ -241,8 +238,16 @@ const FormFormat = () => {
           />
         </div>
         <HR />
-        <Heading>U.S. EQUAL EMPLOYMENT OPPORTUNITY INFORMATION</Heading>
-        {/* (Completion is voluntary and will not subject you to adverse treatment) */}
+        <div>
+          <Heading>
+            U.S. EQUAL EMPLOYMENT OPPORTUNITY INFORMATION{" "}
+            <span>
+              (Completion is voluntary and will not subject you to adverse
+              treatment)
+            </span>
+          </Heading>
+        </div>
+
         <PPText>
           Our company values diversity. To ensure that we comply with reporting
           requirements and to learn more about how we can increase diversity in
