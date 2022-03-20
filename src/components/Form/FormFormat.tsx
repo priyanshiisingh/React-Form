@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import ReCAPTCHA from "react-google-recaptcha";
 
 //styles
 import {
@@ -11,6 +12,8 @@ import {
   PPText,
   HR,
 } from "../../assets/styles/FormStyles";
+import { Div } from "../../assets/styles/CaptchaStyles";
+import { ErrorDiv } from "../../assets/styles/ErrorStyles";
 
 //components
 import InputField from "../InputFields/InputFormat";
@@ -18,7 +21,7 @@ import CVInputField from "../RequiredFields/CVInput";
 import InputReqField from "../RequiredFields/InputReqField";
 import SelectOptions from "../SelectOptions/SelectOptionsFormat";
 import { TextAreaField, PrePronounField } from "../TextArea/TextAreaFormat";
-import CaptchaComponent from "../Captcha/Captcha";
+
 // import URL from "./UrlFile";
 
 //firebase
@@ -41,7 +44,6 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { db } from "./Firestore";
-// const database = getDatabase();
 
 interface FormProps {
   resume: FileList;
@@ -70,47 +72,55 @@ const FormFormat = () => {
     formState: { errors },
   } = useForm<FormProps>();
 
+  const [verifyCaptcha, setVerifyCaptcha] = useState(false);
+
   const onSubmit: SubmitHandler<FormProps> = async (data) => {
     console.log(data);
 
-    const resumeDoc = data.resume[0];
-    const storage = getStorage();
-    const storageRef = ref(storage, resumeDoc.name);
-    const upload = uploadBytesResumable(storageRef, resumeDoc);
+    async function UploadForm(data: any) {
+      const resumeDoc = data.resume[0];
+      const storage = getStorage();
+      const storageRef = ref(storage, resumeDoc.name);
+      const upload = uploadBytesResumable(storageRef, resumeDoc);
 
-    try {
-      const uploadUrl = () => {
-        getDownloadURL(upload.snapshot.ref).then(async (url) => {
-          console.log(url);
-          await updateDoc(doc(db, "applicants", resumeDoc.id), {
-            resumeURL: (data.resumeURL = url),
+      try {
+        const uploadUrl = () => {
+          getDownloadURL(upload.snapshot.ref).then(async (url) => {
+            console.log(url);
+            await updateDoc(doc(db, "applicants", resumeDoc.id), {
+              resumeURL: (data.resumeURL = url),
+            });
           });
-        });
-      };
-      setTimeout(uploadUrl, 2000);
+        };
+        setTimeout(uploadUrl, 2000);
 
-      const resumeDoc = await addDoc(collection(db, "applicants"), {
-        fullName: data.fullName,
-        email: data.email,
-        phone: data.phone,
-        currentCompany: data.currentCompany,
-        linkedInUrl: data.linkedInUrl,
-        twitterUrl: data.twitterUrl,
-        githubUrl: data.githubUrl,
-        portfolioUrl: data.portfolioUrl,
-        otherUrl: data.otherUrl,
-        prePronouns: data.prePronouns,
-        addInfo: data.addInfo,
-        gender: data.gender,
-        race: data.race,
-        veteran: data.veteran,
-      });
-      console.log(resumeDoc.id);
-      alert("Submit Sucessfull");
-    } catch (err) {
-      alert(err);
+        const resumeDoc = await addDoc(collection(db, "applicants"), {
+          fullName: data.fullName,
+          email: data.email,
+          phone: data.phone,
+          currentCompany: data.currentCompany,
+          linkedInUrl: data.linkedInUrl,
+          twitterUrl: data.twitterUrl,
+          githubUrl: data.githubUrl,
+          portfolioUrl: data.portfolioUrl,
+          otherUrl: data.otherUrl,
+          prePronouns: data.prePronouns,
+          addInfo: data.addInfo,
+          gender: data.gender,
+          race: data.race,
+          veteran: data.veteran,
+        });
+        console.log(resumeDoc.id);
+        alert("Submit Sucessfull");
+      } catch (err) {
+        alert(err);
+      }
+    }
+    if (verifyCaptcha === true) {
+      UploadForm(data);
     }
   };
+
   return (
     <DivBody>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -315,7 +325,18 @@ const FormFormat = () => {
           register={register}
         />
 
-        <CaptchaComponent />
+        <Div>
+          <ReCAPTCHA
+            sitekey="6Lf9P9ceAAAAALwzKavZ_IkfDYrB30dJ6OaWsNBf"
+            onChange={() => {
+              setVerifyCaptcha(true);
+            }}
+          />
+          {verifyCaptcha === true ? null : (
+            <ErrorDiv>Verification Required</ErrorDiv>
+          )}
+        </Div>
+
         <InputDiv>
           <InputBtn type="submit" value="Submit Application" />
         </InputDiv>
@@ -325,26 +346,3 @@ const FormFormat = () => {
 };
 
 export default FormFormat;
-
-// const updateRef = doc(db, "applicants");
-// updateDoc(updateRef, {
-//   resumeURL: (data.resumeURL = url),
-// });
-// const getDocument = getDocs(collection(db, "applicants"));
-// console.log(getDocument);
-// addDoc(collection(db, "resumeUrl"), {
-//   resumeURL: (data.resumeURL = url),
-// });
-
-// const newDocRef = doc(collection(db, "applicants"));
-// await setDoc(newDocRef, {
-//   id: newDocRef.id,
-// });
-
-// updateDoc(doc(db, "applicants"), {
-//   resumeURL: (data.resumeURL = url),
-// });
-
-// setTimeout(() => {
-//   console.log("Url uploaded");
-// }, 1000);
