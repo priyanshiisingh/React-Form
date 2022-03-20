@@ -35,8 +35,7 @@ interface TextAreaProps {
   registerTextArea: any;
   register: UseFormRegister<FormProps>;
   validations: any;
-  errors: any;
-  message: string;
+  errors: FieldErrors<FormProps>;
 }
 
 interface PrePronounsProps {
@@ -53,9 +52,11 @@ const TextAreaField = ({
   register,
   validations,
   errors,
-  message,
 }: TextAreaProps) => {
-  const { handleSubmit, watch } = useForm<TextAreaProps>();
+  var errorMsg = <></>;
+  if (errors.addInfo && registerTextArea === "addInfo") {
+    errorMsg = <ErrorDiv>Enter atleast 30 characters</ErrorDiv>;
+  }
 
   return (
     <div>
@@ -65,7 +66,7 @@ const TextAreaField = ({
           {...register(registerTextArea, validations)}
         />
       </Div>
-      {errors ? <ErrorDiv>{message}</ErrorDiv> : null}
+      {errorMsg}
     </div>
   );
 };

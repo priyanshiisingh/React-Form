@@ -35,8 +35,7 @@ interface InputProps {
   register: UseFormRegister<FormProps>;
   registerInput: any;
   validations: any;
-  errors: any;
-  message: string;
+  errors: FieldErrors<FormProps>;
 }
 
 const InputField = ({
@@ -47,9 +46,17 @@ const InputField = ({
   validations,
   register,
   errors,
-  message,
 }: InputProps) => {
-  const { handleSubmit, watch } = useForm<InputProps>();
+  var errorMsg = <></>;
+  if (errors.phone && registerInput === "phone") {
+    errorMsg = <ErrorDiv>Enter valid phone number with country code</ErrorDiv>;
+  } else if (errors.linkedInUrl && registerInput === "linkedInUrl") {
+    errorMsg = <ErrorDiv>Enter valid url</ErrorDiv>;
+  } else if (errors.twitterUrl && registerInput === "twitterUrl") {
+    errorMsg = <ErrorDiv>Enter valid url</ErrorDiv>;
+  } else if (errors.githubUrl && registerInput === "githubUrl") {
+    errorMsg = <ErrorDiv>Enter valid url</ErrorDiv>;
+  }
 
   return (
     <div>
@@ -64,7 +71,7 @@ const InputField = ({
           />
         </IDiv>
       </Div>
-      {errors ? <ErrorDiv>{message}</ErrorDiv> : null}
+      {errorMsg}
     </div>
   );
 };

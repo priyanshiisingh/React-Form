@@ -145,8 +145,7 @@ const FormFormat = () => {
               required: true,
               minLength: 10,
             }}
-            errors={errors.fullName}
-            message="Please enter upto 10 characters"
+            errors={errors}
           />
           <InputReqField
             label="Email"
@@ -155,8 +154,7 @@ const FormFormat = () => {
             register={register}
             placeholder={""}
             validations={{ required: true }}
-            errors={errors.email}
-            message="This field is required"
+            errors={errors}
           />
           <InputField
             label="Phone"
@@ -169,8 +167,7 @@ const FormFormat = () => {
               // pattern: /(\+91\+( )\d{0,15})/,
               minLength: 10,
             }}
-            errors={errors.phone}
-            message="Minimum 10 characters."
+            errors={errors}
           />
           <InputField
             label="Current Company"
@@ -180,7 +177,6 @@ const FormFormat = () => {
             placeholder={""}
             validations={{ required: false }}
             errors={errors}
-            message=""
           />
           <Heading>LINKS</Heading>
           <InputField
@@ -193,8 +189,7 @@ const FormFormat = () => {
               required: false,
               pattern: /(https:\/\/)(www.linkedin\..*)/,
             }}
-            errors={errors.linkedInUrl}
-            message="Enter valid url"
+            errors={errors}
           />
           <InputField
             label="Twitter"
@@ -206,8 +201,7 @@ const FormFormat = () => {
               required: false,
               pattern: /(https:\/\/)(twitter\..*)/,
             }}
-            errors={errors.twitterUrl}
-            message="Enter valid url"
+            errors={errors}
           />
           <InputField
             label="Github"
@@ -219,8 +213,7 @@ const FormFormat = () => {
               required: false,
               pattern: /(https:\/\/)(github\..*)/,
             }}
-            errors={errors.githubUrl}
-            message="Enter valid url"
+            errors={errors}
           />
           <InputField
             label="Portfolio"
@@ -230,7 +223,6 @@ const FormFormat = () => {
             placeholder={""}
             validations={{ required: false }}
             errors={errors}
-            message=""
           />
 
           <InputField
@@ -241,7 +233,6 @@ const FormFormat = () => {
             placeholder={""}
             validations={{ required: false }}
             errors={errors}
-            message=""
           />
         </div>
         <div>
@@ -262,8 +253,7 @@ const FormFormat = () => {
               "Add a cover letter or anything else you want to share"
             }
             validations={{ required: false, minLength: 30 }}
-            errors={errors.addInfo}
-            message="Minimum characters should be 30."
+            errors={errors}
           />
         </div>
         <HR />

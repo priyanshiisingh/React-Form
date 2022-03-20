@@ -44,7 +44,12 @@ const CVInputField = ({
   register,
   errors,
 }: CVInputProps) => {
-  const { handleSubmit, watch } = useForm<CVInputProps>();
+  var errorMsg = <></>;
+  if (errors.resume && registerInput === "resume") {
+    errorMsg = (
+      <ErrorDiv>Maximum file size should be 5MB and format PDF only </ErrorDiv>
+    );
+  }
 
   return (
     <div>
@@ -71,14 +76,7 @@ const CVInputField = ({
           />
         </div>
       </Div>
-      {errors.resume && errors.resume.type === "required" && (
-        <ErrorDiv>"This field is required"</ErrorDiv>
-      )}
-      {errors.resume && errors.resume.type === "validate" && (
-        <ErrorDiv>
-          "File should not be greater than 5MB and format PDF only"
-        </ErrorDiv>
-      )}
+      {errorMsg}
     </div>
   );
 };

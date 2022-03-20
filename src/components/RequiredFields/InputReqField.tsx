@@ -41,8 +41,7 @@ interface InputReqProps {
   registerInput: any;
   register: UseFormRegister<FormProps>;
   validations: any;
-  errors: any;
-  message: string;
+  errors: FieldErrors<FormProps>;
 }
 
 const InputReqField = ({
@@ -53,9 +52,13 @@ const InputReqField = ({
   validations,
   register,
   errors,
-  message,
 }: InputReqProps) => {
-  const { handleSubmit, watch } = useForm<InputReqProps>();
+  var errorMsg = <></>;
+  if (errors.fullName && registerInput === "fullName") {
+    errorMsg = <ErrorDiv>Enter atleast 10 characters</ErrorDiv>;
+  } else if (errors.email && registerInput === "email") {
+    errorMsg = <ErrorDiv>This is required field</ErrorDiv>;
+  }
 
   return (
     <div>
@@ -76,7 +79,7 @@ const InputReqField = ({
           />
         </IDiv>
       </Div>
-      {errors ? <ErrorDiv>{message}</ErrorDiv> : null}
+      {errorMsg}
     </div>
   );
 };
