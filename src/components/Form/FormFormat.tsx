@@ -84,15 +84,19 @@ const FormFormat = () => {
       const upload = uploadBytesResumable(storageRef, resumeDoc);
 
       try {
-        const uploadUrl = () => {
-          getDownloadURL(upload.snapshot.ref).then(async (url) => {
-            console.log(url);
-            await updateDoc(doc(db, "applicants", resumeDoc.id), {
-              resumeURL: (data.resumeURL = url),
+        try {
+          const uploadUrl = () => {
+            getDownloadURL(upload.snapshot.ref).then(async (url) => {
+              console.log(url);
+              await updateDoc(doc(db, "applicants", resumeDoc.id), {
+                resumeURL: (data.resumeURL = url),
+              });
             });
-          });
-        };
-        setTimeout(uploadUrl, 2000);
+          };
+          setTimeout(uploadUrl, 3000);
+        } catch (e) {
+          console.log(e);
+        }
 
         const resumeDoc = await addDoc(collection(db, "applicants"), {
           fullName: data.fullName,
