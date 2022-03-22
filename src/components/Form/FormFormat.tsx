@@ -85,19 +85,17 @@ const FormFormat = () => {
 
       try {
         try {
-          const uploadUrl = () => {
+          setTimeout(async () => {
             getDownloadURL(upload.snapshot.ref).then(async (url) => {
               console.log(url);
               await updateDoc(doc(db, "applicants", resumeDoc.id), {
                 resumeURL: (data.resumeURL = url),
               });
             });
-          };
-          setTimeout(uploadUrl, 3000);
-        } catch (e) {
-          console.log(e);
+          }, 2000);
+        } catch (error) {
+          console.log("error");
         }
-
         const resumeDoc = await addDoc(collection(db, "applicants"), {
           fullName: data.fullName,
           email: data.email,
@@ -116,8 +114,8 @@ const FormFormat = () => {
         });
         console.log(resumeDoc.id);
         alert("Submit Sucessfull");
-      } catch (err) {
-        alert(err);
+      } catch (error) {
+        console.log(error);
       }
     }
     if (verifyCaptcha === true) {
