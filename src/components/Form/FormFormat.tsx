@@ -36,6 +36,7 @@ import {
   setDoc,
   doc,
 } from "firebase/firestore";
+
 import {
   getStorage,
   uploadBytes,
@@ -84,7 +85,7 @@ const FormFormat = () => {
       const upload = uploadBytesResumable(storageRef, resumeDoc);
 
       try {
-        const resumeDoc = await addDoc(collection(db, "applicants"), {
+        const resDoc = await addDoc(collection(db, "applicants"), {
           resumeURL: "",
           fullName: data.fullName,
           email: data.email,
@@ -105,13 +106,13 @@ const FormFormat = () => {
         setTimeout(async () => {
           getDownloadURL(upload.snapshot.ref).then(async (url) => {
             console.log(url);
-            await updateDoc(doc(db, "applicants", resumeDoc.id), {
+            await updateDoc(doc(db, "applicants", resDoc.id), {
               resumeURL: (data.resumeURL = url),
             });
           });
         }, 2000);
 
-        console.log(resumeDoc.id);
+        console.log(resDoc.id);
         alert("Submit Sucessfull");
       } catch (error) {
         console.log(error);
