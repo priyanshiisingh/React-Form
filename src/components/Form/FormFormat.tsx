@@ -84,18 +84,6 @@ const FormFormat = () => {
       const upload = uploadBytesResumable(storageRef, resumeDoc);
 
       try {
-        try {
-          setTimeout(async () => {
-            getDownloadURL(upload.snapshot.ref).then(async (url) => {
-              console.log(url);
-              await updateDoc(doc(db, "applicants", resumeDoc.id), {
-                resumeURL: (data.resumeURL = url),
-              });
-            });
-          }, 2000);
-        } catch (error) {
-          console.log("error");
-        }
         const resumeDoc = await addDoc(collection(db, "applicants"), {
           resumeURL: "",
           fullName: data.fullName,
@@ -113,6 +101,16 @@ const FormFormat = () => {
           race: data.race,
           veteran: data.veteran,
         });
+
+        setTimeout(async () => {
+          getDownloadURL(upload.snapshot.ref).then(async (url) => {
+            console.log(url);
+            await updateDoc(doc(db, "applicants", resumeDoc.id), {
+              resumeURL: (data.resumeURL = url),
+            });
+          });
+        }, 2000);
+
         console.log(resumeDoc.id);
         alert("Submit Sucessfull");
       } catch (error) {
