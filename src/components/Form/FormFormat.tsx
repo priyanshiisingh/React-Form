@@ -47,7 +47,7 @@ import { db } from "./Firestore";
 
 interface FormProps {
   resume: FileList;
-  resumeURL: any;
+  resumeURL: string;
   fullName: string;
   email: string;
   phone: string;
@@ -97,6 +97,7 @@ const FormFormat = () => {
           console.log("error");
         }
         const resumeDoc = await addDoc(collection(db, "applicants"), {
+          resumeURL: "",
           fullName: data.fullName,
           email: data.email,
           phone: data.phone,
