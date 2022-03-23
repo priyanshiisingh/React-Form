@@ -79,24 +79,22 @@ const CVInputField = ({
         </CVDiv>
         <div>
           <CVInput
-            type={type}
+            type="file"
             placeholder={placeholder}
             {...register(registerInput, validations)}
             id={label}
-            onChange={fileUpload}
+            onChange={(e) => {
+              fileUpload();
+              handleChange(e);
+            }}
           />
         </div>
       </Div>
       {errorMsg}
+
       {upload === true ? <ErrorDiv>File uploaded</ErrorDiv> : <></>}
     </div>
   );
 };
 
 export default CVInputField;
-
-/*
-<div class="input-group">
-  <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-</div>
-*/
